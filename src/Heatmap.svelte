@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
 
-    export let updateData;
+    export let getCellInfo;
     
     let plotlyScript = document.createElement('script');
     plotlyScript.src = "https://cdn.plot.ly/plotly-latest.min.js"
@@ -10,6 +10,8 @@
     export let matrix;
     export let xLabels;
     export let yLabels;
+    export let featureX;
+    export let featureY;
 
     let GnYlRd = [
         [0, 'green'], 
@@ -29,20 +31,22 @@
     let xAxisTemplate = {
         showgrid: false,
         zeroline: false,
-        title: 'Axis X',
+        title: featureX,
+        automargin: true
     };
 
     let yAxisTemplate = {
         showgrid: false,
         zeroline: false,
-        title: 'Axis Y',
+        title: featureY,
+        automargin: true
     };
 
     let layout = {
         title: 'Each cell represents a member of the team of agents generated',
         annotations: [],
         xaxis: xAxisTemplate,
-        yaxis: yAxisTemplate,
+        yaxis: yAxisTemplate,     
     };
 
     let config = {
@@ -55,11 +59,9 @@
             let Plot = new Plotly.newPlot(plotDiv, data, layout, config); 
 
             plotDiv.on('plotly_click', function(data){
-                var pts = '';
-                for(var i=0; i < data.points.length; i++){
-                    pts = 'x = '+data.points[i].x +'\ny = '+ data.points[i].y + '\n\n';
-                }
-                updateData(pts);
+                // Return the index of the cell clicked
+                var cellIndex = data.points[0].pointIndex;
+                getCellInfo(cellIndex);
             });
         }
     });

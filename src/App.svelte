@@ -8,19 +8,66 @@
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
 
-	let gameName = 'Butterflies';
+	const PLOT_ID_Y = 0;
+	const PLOT_ID_X = 1;
 
-    let matrix = [[1,2,5,12], [null,null,2,15], [0,9,null,10]];
-	//let matrix;
-	let xLabels = ['x1', 'x2', 'x3', 'x4'];
-	let yLabels = ['y1', 'y2', 'y3'];
+	let jsonFileName = '';
+
+	let gameName = '';
+	let experimentId = '';
+
+	let featureX = 'Non selected';
+	let featureY = 'Non selected';
+
+	let matrix;
+	let xLabels;
+	let yLabels;
 
 	let agentStats;
 	let videoUrl;
 	let gamePoster = './img/demo.png';
 
-	const updateData = (message) => {
-		agentStats = message;
+	function loadMatrixData() {
+		experimentId = '';
+		/*
+		return fetch('/json/test.json')
+		.then(response => response.json());*/
+		if (!jsonFileName) {
+			console.log('not chosen')
+			return;
+		}
+
+		let fetchFile = '/json/' + jsonFileName + '.json';
+		console.log(fetchFile);
+
+		fetch(fetchFile)
+			.then((response) => response.json())
+			.then((jsonData) => {
+				gameName = jsonData.config.frameworkConfig.game;
+
+				featureX = jsonData.config.mapElitesConfig.featureX;
+				featureY = jsonData.config.mapElitesConfig.featureY;
+
+				xLabels = jsonData.featuresDetails[featureX].bucketsRangeInfo;
+				yLabels = jsonData.featuresDetails[featureY].bucketsRangeInfo;
+
+				console.log(xLabels);
+				console.log(yLabels);
+
+				matrix = new Array(yLabels.length).fill(null).map(() => new Array(xLabels.length).fill(null));
+				var mapElites = jsonData.result.mapElites;
+				var occupiedCells = jsonData.result.occupiedCellsIdx;
+				
+				occupiedCells.forEach(agentData => {
+					var x = agentData['x']
+					var y = agentData['y']
+					matrix[y][x] = mapElites[x][y].performance * (-1);
+				});
+			});
+  	}
+
+	const getCellInfo = (cellIndex) => {
+		agentStats = "Feature X id: " + cellIndex[PLOT_ID_X] + " Feature Y id: " + cellIndex[PLOT_ID_Y];
 		gamePoster = './img/demo.png';
 		videoUrl = './video/demo.mp4';
 		focus(CellData);
@@ -58,6 +105,16 @@
 		<TabPanel>
 			<div class="container">
 				<h1>Games</h1>
+			
+				<select bind:value={jsonFileName}>
+					<option value="">----</option>
+					<option value="test">Test data 1</option>
+					<option value="test2">Test data 2</option>
+				</select>
+
+				<button on:click={loadMatrixData}>
+					Load data
+				</button>
 			</div>
 		</TabPanel>
 	
@@ -67,7 +124,7 @@
 					<h1>{gameName}</h1>
 				</div>
 				<div class="container">
-					<Heatmap {matrix} {xLabels} {yLabels} {updateData}/>
+					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo}/>
 				</div>
 				
 				<div class="container">
