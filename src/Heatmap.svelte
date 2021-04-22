@@ -59,9 +59,10 @@
             let Plot = new Plotly.newPlot(plotDiv, data, layout, config); 
 
             plotDiv.on('plotly_click', function(data){
-                // Return the index of the cell clicked
-                var cellIndex = data.points[0].pointIndex;
-                getCellInfo(cellIndex);
+                // Return the index of the cell clicked, X and Y axis are set as [Y, X] in the plot
+                var cellIdxFeatureX = data.points[0].pointIndex[1];
+                var cellIdxFeatureY = data.points[0].pointIndex[0]
+                getCellInfo(cellIdxFeatureX, cellIdxFeatureY);
             });
         }
     });

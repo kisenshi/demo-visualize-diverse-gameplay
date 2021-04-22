@@ -8,9 +8,6 @@
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
 
-	const PLOT_ID_Y = 0;
-	const PLOT_ID_X = 1;
-
 	let jsonFileName = '';
 
 	let gameName = '';
@@ -66,8 +63,8 @@
 			});
   	}
 
-	const getCellInfo = (cellIndex) => {
-		agentStats = "Feature X id: " + cellIndex[PLOT_ID_X] + " Feature Y id: " + cellIndex[PLOT_ID_Y];
+	const getCellInfo = (cellIdxFeatureX, cellIdxFeatureY) => {
+		agentStats = "Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY;
 		gamePoster = './img/demo.png';
 		videoUrl = './video/demo.mp4';
 		focus(CellData);
