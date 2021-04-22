@@ -32,14 +32,16 @@
         showgrid: false,
         zeroline: false,
         title: featureX,
-        automargin: true
+        automargin: true,
+        autotick: false,
     };
 
     let yAxisTemplate = {
         showgrid: false,
         zeroline: false,
         title: featureY,
-        automargin: true
+        automargin: true,
+        autotick: false,
     };
 
     let layout = {
