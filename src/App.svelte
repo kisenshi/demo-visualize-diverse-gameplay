@@ -4,6 +4,7 @@
 
 <script>
 	import { Tabs, TabList, TabPanel, Tab } from './TabLogic/tabs.js';
+	import * as animateScroll from "svelte-scrollto";
 
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
@@ -66,8 +67,9 @@
 	const getCellInfo = (cellIdxFeatureX, cellIdxFeatureY) => {
 		agentStats = "Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY;
 		gamePoster = './img/demo.png';
-		videoUrl = './video/demo.mp4';
-		focus(CellData);
+		videoUrl = './video/demo.mp4';	
+
+		animateScroll.scrollTo({element: '#agentData'});	
 	}
 </script>
 
@@ -124,8 +126,8 @@
 					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo}/>
 				</div>
 				
-				<div class="container">
 					<CellData {agentStats} {videoUrl} {gamePoster}/>
+				<div class="container" id="agentData">
 				</div>
 			</TabPanel>
 		{/if}
