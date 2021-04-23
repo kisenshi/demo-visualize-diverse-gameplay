@@ -17,11 +17,13 @@
 	let featureX = 'Non selected';
 	let featureY = 'Non selected';
 
+	let mapElites;
+
 	let matrix;
 	let xLabels;
 	let yLabels;
 
-	let agentStats;
+	let agentData;
 	let videoUrl;
 	let gamePoster = './img/demo.png';
 
@@ -53,19 +55,25 @@
 				console.log(yLabels);
 
 				matrix = new Array(yLabels.length).fill(null).map(() => new Array(xLabels.length).fill(null));
-				var mapElites = jsonData.result.mapElites;
+				mapElites = jsonData.result.mapElites;
 				var occupiedCells = jsonData.result.occupiedCellsIdx;
 				
-				occupiedCells.forEach(agentData => {
-					var x = agentData['x']
-					var y = agentData['y']
+				occupiedCells.forEach(occupiedCellInfo => {
+					var x = occupiedCellInfo['x']
+					var y = occupiedCellInfo['y']
 					matrix[y][x] = mapElites[x][y].performance * (-1);
 				});
 			});
   	}
 
 	const getCellInfo = (cellIdxFeatureX, cellIdxFeatureY) => {
-		agentStats = "Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY;
+		agentData = mapElites[cellIdxFeatureX][cellIdxFeatureY];
+		agentData["cellX"] = cellIdxFeatureX;
+		agentData["cellY"] = cellIdxFeatureY;
+
+		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
+		console.log(agentData);
+		
 		gamePoster = './img/demo.png';
 		videoUrl = './video/demo.mp4';	
 
@@ -73,7 +81,7 @@
 	}
 </script>
 
-<main>
+<main id="my-style">
 	<Tabs>
 		<TabList>
 			<Tab>Welcome!</Tab>
@@ -126,8 +134,8 @@
 					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo}/>
 				</div>
 				
-					<CellData {agentStats} {videoUrl} {gamePoster}/>
 				<div class="container" id="agentData">
+					<CellData {agentData} {videoUrl} {gamePoster}/>
 				</div>
 			</TabPanel>
 		{/if}
@@ -139,13 +147,13 @@
     	background-color: #65a7ff !important;
 	}
 
-	main {
+	:global(main) {
 		text-align: center;
     	color: #333;
     	background-color: #65a7ff;
 	}
 
-	.container {
+	:global(#my-style .container) {
 		padding: 10px;
 		max-width: 1000px;
 		width: 100%;
@@ -153,31 +161,31 @@
 		background-color: #fff;
 	}
 
-	.container.info {
+	:global(#my-style .container.info) {
 		text-align: left;
 		padding: 25px;
 	}
 
-	h1 {	
+	:global(#my-style h1) {	
 		text-transform: uppercase;
 		font-size: 2em;
 		font-weight: 100;
 		color: #65a7ff;
 	}
 
-	h2 {
+	:global(#my-style h2) {
 		font-size: 1.5em;
 		color: #65a7ff;
 		font-weight: 400;
 	}
 
-	h3 {
+	:global(#my-style h3) {
 		font-size: 1em;
 		color: #a8ceff;
 		font-weight: 400;
 	}
 
-	hr {
+	:global(#my-style hr) {
 		border-top: 1px solid #65a7ff;
 	}
 </style>
