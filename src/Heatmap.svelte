@@ -53,6 +53,7 @@
 
     let config = {
         responsive: true,
+        displayModeBar: false
     }
 
     onMount(() => {
@@ -60,11 +61,31 @@
             let plotDiv = document.getElementById('plotDiv');				
             let Plot = new Plotly.newPlot(plotDiv, data, layout, config); 
 
-            plotDiv.on('plotly_click', function(data){
+            plotDiv.on('plotly_click', function(heatmapData){
                 // Return the index of the cell clicked, X and Y axis are set as [Y, X] in the plot
-                var cellIdxFeatureX = data.points[0].pointIndex[1];
-                var cellIdxFeatureY = data.points[0].pointIndex[0]
+                var pn=heatmapData.points[0].pointNumber;
+                
+                var cellIdxFeatureX = pn[1];
+                var cellIdxFeatureY = pn[0]
                 getCellInfo(cellIdxFeatureX, cellIdxFeatureY);
+
+                // highlight cell
+                if (plotDiv.data.length > 1) {
+                    Plotly.deleteTraces(plotDiv, 1);
+                } 
+                
+                let highlightMatrix = new Array(yLabels.length).fill(null).map(() => new Array(xLabels.length).fill(null));
+                highlightMatrix[pn[0]][pn[1]] = 0;
+
+                let highlightData = [{
+                    z: highlightMatrix,
+                    type: 'heatmap',
+                    showscale: false,
+                    hoverinfo: 'skip',
+                    opacity: 0.65,
+                }];
+                
+                Plotly.plot(plotDiv, highlightData);
             });
         }
     });
