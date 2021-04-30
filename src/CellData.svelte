@@ -7,7 +7,7 @@
     export let videoUrl = '';
     export let gamePoster = '';
 
-    let color = "light";
+    let color = "info";
 
     function playVideo(event) {
 		alert(event.detail.text);
@@ -59,5 +59,11 @@
 
     .data {
         text-align: right;
+    }
+
+    @media only screen and (max-width: 991px) {
+        .data {
+            text-align: center;
+        }
     }
 </style>
