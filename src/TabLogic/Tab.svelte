@@ -6,6 +6,9 @@
 	const { registerTab, selectTab, selectedTab } = getContext(TABS);
 
 	registerTab(tab);
+	
+	export const triggerTab = () => selectTab(tab);
+    
 </script>
 
 <style>

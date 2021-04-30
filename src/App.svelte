@@ -5,6 +5,7 @@
 <script>
 	import { Tabs, TabList, TabPanel, Tab } from './TabLogic/tabs.js';
 	import * as animateScroll from "svelte-scrollto";
+	import { Spinner } from 'sveltestrap';
 
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
@@ -12,7 +13,6 @@
 	let jsonFileName = '';
 
 	let gameName = '';
-	let experimentId = '';
 
 	let featureX = 'Non selected';
 	let featureY = 'Non selected';
@@ -25,10 +25,15 @@
 
 	let agentData;
 	let videoUrl;
-	let gamePoster = './img/demo.png';
+	let gamePoster;
+
+	let welcomeTab;
+	let chooseDataTab;
+	let heatmapTab;
+
+	let loadingPlot;
 
 	function loadMatrixData() {
-		experimentId = '';
 		/*
 		return fetch('/json/test.json')
 		.then(response => response.json());*/
@@ -63,6 +68,9 @@
 					var y = occupiedCellInfo['y']
 					matrix[y][x] = mapElites[x][y].performance * (-1);
 				});
+
+				loadingPlot = true;
+				heatmapTab.triggerTab();
 			});
   	}
 
@@ -84,11 +92,13 @@
 <main id="my-style">
 	<Tabs>
 		<TabList>
-			<Tab>Welcome!</Tab>
-			<Tab>Choose data</Tab>
-			{#if matrix}
-				<Tab>Team info</Tab>
-			{/if}
+			<Tab bind:this={welcomeTab}>Welcome!</Tab>
+			<Tab bind:this={chooseDataTab}>Choose data</Tab>
+			<Tab bind:this={heatmapTab}>
+				{#if matrix}
+					Team info
+				{/if}
+			</Tab>
 		</TabList>
 	
 		<TabPanel>
@@ -128,10 +138,14 @@
 		{#if matrix}
 			<TabPanel>
 				<div class="container">
-					<h1>{gameName}</h1>
+					{#if loadingPlot}
+						<Spinner color="info" type="border" />
+					{:else}
+						<h1>{gameName}</h1>
+					{/if}
 				</div>
 				<div class="container">
-					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo}/>
+					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo} bind:loadingPlot/>
 				</div>
 				
 				<div class="container" id="agentData">

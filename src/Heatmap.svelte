@@ -12,6 +12,7 @@
     export let yLabels;
     export let featureX;
     export let featureY;
+    export let loadingPlot;
 
     let GnYlRd = [
         [0, 'green'], 
@@ -59,7 +60,11 @@
     onMount(() => {
         plotlyScript.onload = function()  {
             let plotDiv = document.getElementById('plotDiv');				
-            let Plot = new Plotly.newPlot(plotDiv, data, layout, config); 
+            let Plot = new Plotly.newPlot(plotDiv, data, layout, config);
+            
+            plotDiv.on('plotly_afterplot', function(){
+                loadingPlot = false;
+            });
 
             plotDiv.on('plotly_click', function(heatmapData){
                 // Return the index of the cell clicked, X and Y axis are set as [Y, X] in the plot
