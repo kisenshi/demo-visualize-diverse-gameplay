@@ -12,7 +12,7 @@
 
 	let jsonFileName = '';
 
-	let gameName = '';
+	let dataInfo = {};
 
 	let featureX = 'Non selected';
 	let featureY = 'Non selected';
@@ -48,7 +48,9 @@
 		fetch(fetchFile)
 			.then((response) => response.json())
 			.then((jsonData) => {
-				gameName = jsonData.config.frameworkConfig.game;
+				dataInfo['gameName'] = jsonData.config.frameworkConfig.game;
+				dataInfo['agentName'] = jsonData.config.frameworkConfig.agent;
+				dataInfo['behaviours'] = jsonData.teamInfo.enabledBehaviours;
 
 				featureX = jsonData.config.mapElitesConfig.featureX;
 				featureY = jsonData.config.mapElitesConfig.featureY;
@@ -141,7 +143,13 @@
 					{#if loadingPlot}
 						<Spinner color="info" type="border" />
 					{:else}
-						<h1>{gameName}</h1>
+						<h1>{dataInfo['gameName']}</h1>
+						<h3>
+							Behaviours enabled: 
+							{#each dataInfo['behaviours'] as behaviour }
+								{behaviour}{" "}
+							{/each}
+						</h3>
 					{/if}
 				</div>
 				<div class="container">
