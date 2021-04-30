@@ -3,12 +3,18 @@
 </svelte:head>
 
 <script>
+	import { onMount } from 'svelte';
+	import { each } from 'svelte/internal';
+
 	import { Tabs, TabList, TabPanel, Tab } from './TabLogic/tabs.js';
+
 	import * as animateScroll from "svelte-scrollto";
 	import { Spinner } from 'sveltestrap';
 
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
+
+	let configInfo; 
 
 	let jsonFileName = '';
 
@@ -32,6 +38,13 @@
 	let heatmapTab;
 
 	let loadingPlot;
+
+	onMount(async () => {
+		const res = await fetch("/json/demo_config.json");
+		configInfo = await res.json();
+
+		console.log(configInfo);
+	});
 
 	function loadMatrixData() {
 		/*
@@ -73,6 +86,7 @@
 
 				loadingPlot = true;
 				heatmapTab.triggerTab();
+				agentData = null;
 			});
   	}
 
@@ -127,8 +141,12 @@
 			
 				<select bind:value={jsonFileName}>
 					<option value="">----</option>
-					<option value="test">Test data 1</option>
-					<option value="test2">Test data 2</option>
+					{#each configInfo.files["BUTTERFLIES"]["B2"] as fileData}
+						<option value="B2/{fileData.file}">butterflies (2 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+					{/each}
+					{#each configInfo.files["BUTTERFLIES"]["B3"] as fileData}
+						<option value="B3/{fileData.file}">butterflies (3 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+					{/each}
 				</select>
 
 				<button on:click={loadMatrixData}>
@@ -144,12 +162,17 @@
 						<Spinner color="info" type="border" />
 					{:else}
 						<h1>{dataInfo['gameName']}</h1>
+						<h2>Features: {featureX} x {featureY}</h2>
 						<h3>
-							Behaviours enabled: 
+							Behaviours enabled for agents: 
 							{#each dataInfo['behaviours'] as behaviour }
 								{behaviour}{" "}
 							{/each}
 						</h3>
+						<div>
+							adsfdsfdsf
+							fdsfdsf
+						</div>
 					{/if}
 				</div>
 				<div class="container">

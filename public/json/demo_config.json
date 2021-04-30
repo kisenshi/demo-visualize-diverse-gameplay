@@ -1,0 +1,106 @@
+{
+    "games": {
+        "BUTTERFLIES": {
+            "name": "butterflies",
+            "screenshot": "butterflies.png",
+            "description": "sadadasdas asdasdasda"
+        }
+    },
+    "behaviours" : {
+        "WINNER" : {
+            "name": "winner",
+            "description": ""
+        },
+        "EXPLORER" : {
+            "name": "explorer",
+            "description": ""
+        }
+    },
+    "files": {
+        "BUTTERFLIES" : {
+            "B2" : [
+            {
+                "file": "MAPElitesGameplay_30B0a_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B0b_butterflies_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
+                "featureX": "WINS",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B0c_butterflies_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
+                "featureX": "WINS",
+                "featureY": "EXPLORATION_PERCENTAGE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B0d_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "CURIOSITY"
+            },
+            {
+                "file": "MAPElitesGameplay_30B0e_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_COLLISIONS_perf_FAST_100_200",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "COLLISIONS"
+            },
+            {
+                "file": "MAPElitesGameplay_30B0f_butterflies_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
+                "featureX": "CURIOSITY",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B0g_butterflies_lvl0_x_CURIOSITY_y_COLLISIONS_perf_FAST_100_200",
+                "featureX": "CURIOSITY",
+                "featureY": "COLLISIONS"
+            }
+            ,
+            {
+                "file": "MAPElitesGameplay_30B0h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
+                "featureX": "COLLISIONS",
+                "featureY": "SCORE"
+            }],
+            "B3" : [ 
+            {
+                "file": "MAPElitesGameplay_30B03a_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03b_butterflies_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
+                "featureX": "WINS",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03c_butterflies_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
+                "featureX": "WINS",
+                "featureY": "EXPLORATION_PERCENTAGE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03d_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "CURIOSITY"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03e_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_COLLISIONS_perf_FAST_100_200",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "COLLISIONS"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03f_butterflies_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
+                "featureX": "CURIOSITY",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03g_butterflies_lvl0_x_CURIOSITY_y_COLLISIONS_perf_FAST_100_200",
+                "featureX": "CURIOSITY",
+                "featureY": "COLLISIONS"
+            },
+            {
+                "file": "MAPElitesGameplay_30B03h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
+                "featureX": "COLLISIONS",
+                "featureY": "SCORE"
+            }]
+        }
+    }
+}
