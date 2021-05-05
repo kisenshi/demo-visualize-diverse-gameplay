@@ -138,7 +138,7 @@
 		</TabPanel>
 	
 		<TabPanel>
-			<div class="container" in:fade out:slide>
+			<div class="container" in:fade>
 				<h1>Games</h1>
 			
 				<select bind:value={jsonFileName}>
