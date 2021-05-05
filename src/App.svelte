@@ -12,6 +12,9 @@
 	import * as animateScroll from "svelte-scrollto";
 	import { Spinner } from 'sveltestrap';
 	import { Col, Container, Row } from 'sveltestrap';
+	import { Popover, Button } from 'sveltestrap';
+	import { Card, CardBody, CardHeader, CardTitle } from 'sveltestrap';
+	import { FormGroup, CustomInput, Label } from 'sveltestrap';
 
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
@@ -86,7 +89,7 @@
 					matrix[y][x] = mapElites[x][y].performance * (-1);
 				});
 
-				gamePoster = './img/games/'+jsonData.config.frameworkConfig.game.toLowerCase()+'.png';
+				gamePoster = './img/games/'+configInfo["games"][dataInfo['gameName']]["name"]+'.png';
 				loadingPlot = true;
 				heatmapTab.triggerTab();
 				agentData = null;
@@ -139,27 +142,29 @@
 	
 		<TabPanel>
 			<div class="container" in:fade>
-				<h1>Games</h1>
+				<h1>Select game and features</h1>
 			
-				<select bind:value={jsonFileName}>
-					<option value="">----</option>
-					{#each configInfo.files["BUTTERFLIES"]["B2"] as fileData}
-						<option value="B2/{fileData.file}">butterflies (2 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
-					{/each}
-					{#each configInfo.files["BUTTERFLIES"]["B3"] as fileData}
-						<option value="B3/{fileData.file}">butterflies (3 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
-					{/each}
-					{#each configInfo.files["ZELDA"]["Z5"] as fileData}
-						<option value="Z5/{fileData.file}">zelda (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
-					{/each}
-					{#each configInfo.files["DIGDUG"]["D5"] as fileData}
-						<option value="D5/{fileData.file}">digdug (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
-					{/each}
-				</select>
+				<FormGroup>
+					<CustomInput type="select" bind:value={jsonFileName}>
+						<option />
+						{#each configInfo.files["BUTTERFLIES"]["B2"] as fileData}
+							<option value="B2/{fileData.file}">butterflies (2 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+						{/each}
+						{#each configInfo.files["BUTTERFLIES"]["B3"] as fileData}
+							<option value="B3/{fileData.file}">butterflies (3 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+						{/each}
+						{#each configInfo.files["ZELDA"]["Z5"] as fileData}
+							<option value="Z5/{fileData.file}">zelda (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+						{/each}
+						{#each configInfo.files["DIGDUG"]["D5"] as fileData}
+							<option value="D5/{fileData.file}">digdug (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+						{/each}
+					</CustomInput>
+				</FormGroup>
 
-				<button on:click={loadMatrixData}>
+				<Button color="secondary" on:click={loadMatrixData}>
 					Load data
-				</button>
+				</Button>
 			</div>
 		</TabPanel>
 	
@@ -173,27 +178,72 @@
 					{:else}
 						<div class="container info">
 							<h1>{dataInfo['gameName']}</h1>
-							<Container>
-								<Row>
-									<Col lg="7">
-										<h2>Features:</h2>
-										<h2>{featureX} x {featureY}</h2>
-										<h3>Behaviours enabled for agents:</h3>
-										<h3>
-											{#each dataInfo['behaviours'] as behaviour }
-												{behaviour}{" "}
-											{/each}
-										</h3>
-									</Col>
-									<Col lg="5">
-										<img src={gamePoster} alt="Game screenshot"/>
-									</Col>
-								</Row>
-							</Container>
-							<div>
-								adsfdsfdsf
-								fdsfdsf
-							</div>
+							<Card>
+								<Container>
+									<Row>
+										<Col lg="6">
+											<CardBody>
+												<h2>Features</h2>
+												<Button 
+												color="primary"
+												id="info-{featureX}">
+												{configInfo["features"][featureX]["name"]}
+												</Button>
+												<Popover
+													trigger="hover"
+													placement="bottom"
+													target="info-{featureX}"
+													title="{configInfo["features"][featureX]["name"]}">
+													{configInfo["features"][featureX]["description"]}
+												</Popover>
+												{" x "}
+												<Button 
+													color="primary"
+													id="info-{featureY}">
+													{configInfo["features"][featureY]["name"]}
+												</Button>
+												<Popover
+													trigger="hover"
+													placement="bottom"
+													target="info-{featureY}"
+													title="{configInfo["features"][featureY]["name"]}">
+													{configInfo["features"][featureY]["description"]}
+												</Popover>
+											</CardBody>
+											<CardBody>
+												<h3>Behaviours enabled for agents:</h3>
+												{#each dataInfo['behaviours'] as behaviour }
+													<Button 
+													color="info"
+													id="info-{behaviour}">
+													{configInfo["behaviours"][behaviour]["name"]}
+													</Button>
+													<Popover
+													trigger="hover"
+													placement="bottom"
+													target="info-{behaviour}"
+													title="{configInfo["behaviours"][behaviour]["name"]}">
+													{configInfo["behaviours"][behaviour]["description"]}
+													</Popover>
+												{" "}
+												{/each}
+											</CardBody>
+										</Col>
+										<Col lg="6">
+											<CardBody>
+												<img id="img-screenshot" src={gamePoster} alt="{configInfo["games"][dataInfo['gameName']]["name"]} screenshot"/>
+												<Popover
+												trigger="hover"
+												placement="bottom"
+												target="img-screenshot"
+												title="{configInfo["games"][dataInfo['gameName']]["name"]}">
+												<div>{configInfo["games"][dataInfo['gameName']]["description"]}</div>
+												</Popover>
+											</CardBody>
+										</Col>
+									</Row>
+								</Container>
+							</Card>
 						</div>
 					{/if}
 					<div class="container">
