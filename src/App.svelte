@@ -11,6 +11,7 @@
 
 	import * as animateScroll from "svelte-scrollto";
 	import { Spinner } from 'sveltestrap';
+	import { Col, Container, Row } from 'sveltestrap';
 
 	import Heatmap from './Heatmap.svelte';
 	import CellData from './CellData.svelte';
@@ -85,6 +86,7 @@
 					matrix[y][x] = mapElites[x][y].performance * (-1);
 				});
 
+				gamePoster = './img/games/'+jsonData.config.frameworkConfig.game.toLowerCase()+'.png';
 				loadingPlot = true;
 				heatmapTab.triggerTab();
 				agentData = null;
@@ -99,7 +101,6 @@
 		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
 		console.log(agentData);
 		
-		gamePoster = './img/demo.png';
 		videoUrl = './video/demo.mp4';	
 
 		animateScroll.scrollTo({element: '#agentData'});	
@@ -172,13 +173,23 @@
 					{:else}
 						<div class="container info">
 							<h1>{dataInfo['gameName']}</h1>
-							<h2>Features: {featureX} x {featureY}</h2>
-							<h3>
-								Behaviours enabled for agents: 
-								{#each dataInfo['behaviours'] as behaviour }
-									{behaviour}{" "}
-								{/each}
-							</h3>
+							<Container>
+								<Row>
+									<Col lg="7">
+										<h2>Features:</h2>
+										<h2>{featureX} x {featureY}</h2>
+										<h3>Behaviours enabled for agents:</h3>
+										<h3>
+											{#each dataInfo['behaviours'] as behaviour }
+												{behaviour}{" "}
+											{/each}
+										</h3>
+									</Col>
+									<Col lg="5">
+										<img src={gamePoster} alt="Game screenshot"/>
+									</Col>
+								</Row>
+							</Container>
 							<div>
 								adsfdsfdsf
 								fdsfdsf
@@ -222,6 +233,10 @@
 		padding: 25px;
 	}
 
+	:global(#my-style .container.info h1) {
+		text-align: center;
+	}
+
 	:global(#my-style h1) {	
 		text-transform: uppercase;
 		font-size: 2em;
@@ -243,5 +258,9 @@
 
 	:global(#my-style hr) {
 		border-top: 1px solid #65a7ff;
+	}
+
+	img {
+		width: 100%;
 	}
 </style>
