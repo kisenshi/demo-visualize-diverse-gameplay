@@ -101,6 +101,97 @@
                 "featureX": "COLLISIONS",
                 "featureY": "SCORE"
             }]
+        },
+        "ZELDA" : {
+            "Z5" : [ 
+            {
+                "file": "MAPElitesGameplay_30Z1a_zelda_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30Z1b_zelda_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "CURIOSITY"
+            },
+            {
+                "file": "MAPElitesGameplay_30Z1c_zelda_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "INTERACTIONS"
+            },
+            {
+                "file": "MAPElitesGameplay_30Z1d_zelda_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "KILLS"
+            },
+            {
+                "file": "MAPElitesGameplay_30Z1f_zelda_x_CURIOSITY_y_SCORE_perf_FAST_100_250",
+                "featureX": "CURIOSITY",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30Z1g_zelda_x_INTERACTIONS_y_SCORE_perf_FAST_100_250",
+                "featureX": "INTERACTIONS",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30Z1h_zelda_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
+                "featureX": "INTERACTIONS",
+                "featureY": "KILLS"
+            }]
+        },
+        "DIGDUG" : {
+            "D5" : [
+            {
+                "file": "MAPElitesGameplay_30D0a_digdug_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0b_digdug_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "CURIOSITY"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0c_digdug_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "INTERACTIONS"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0d_digdug_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "KILLS"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0e_digdug_x_EXPLORATION_PERCENTAGE_y_ITEMS_perf_FAST_100_250",
+                "featureX": "EXPLORATION_PERCENTAGE",
+                "featureY": "ITEMS"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0f_digdug_x_CURIOSITY_y_SCORE_perf_FAST_100_250",
+                "featureX": "CURIOSITY",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0g_digdug_x_INTERACTIONS_y_SCORE_perf_FAST_100_250",
+                "featureX": "INTERACTIONS",
+                "featureY": "SCORE"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0h_digdug_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
+                "featureX": "INTERACTIONS",
+                "featureY": "KILLS"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0i_digdug_x_INTERACTIONS_y_ITEMS_perf_FAST_100_250",
+                "featureX": "INTERACTIONS",
+                "featureY": "ITEMS"
+            },
+            {
+                "file": "MAPElitesGameplay_30D0j_digdug_x_KILLS_y_ITEMS_perf_FAST_100_250",
+                "featureX": "KILLS",
+                "featureY": "ITEMS"
+            }]
         }
     }
 }

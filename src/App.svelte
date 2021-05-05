@@ -147,6 +147,12 @@
 					{#each configInfo.files["BUTTERFLIES"]["B3"] as fileData}
 						<option value="B3/{fileData.file}">butterflies (3 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
 					{/each}
+					{#each configInfo.files["ZELDA"]["Z5"] as fileData}
+						<option value="Z5/{fileData.file}">zelda (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+					{/each}
+					{#each configInfo.files["DIGDUG"]["D5"] as fileData}
+						<option value="D5/{fileData.file}">digdug (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+					{/each}
 				</select>
 
 				<button on:click={loadMatrixData}>
