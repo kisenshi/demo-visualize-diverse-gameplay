@@ -3,195 +3,254 @@
         "BUTTERFLIES": {
             "name": "butterflies",
             "screenshot": "butterflies.png",
-            "description": "sadadasdas asdasdasda"
+            "description": "The game is conformed by butterflies (random NPCs); cocoons (immutable elements the player can't interact with); and trees conforming the limits of the map. The player can move up, down, left and right. The goal of the game is capturing all the butterflies before the time runs out or all the cocoons have disappeared. Butterflies move randomly and when they collide with the cocoons scattered around the map, these become a new butterfly. The player captures the butterflies by colliding with them, action that increases the score by 2."
+        },
+        "ZELDA": {
+            "name": "zelda",
+            "screenshot": "zelda.png",
+            "description": "Zelda."
+        },
+        "DIGDUG": {
+            "name": "digdug",
+            "screenshot": "digdug.png",
+            "description": "digdug description"
         }
     },
-    "behaviours" : {
-        "WINNER" : {
+    "behaviours": {
+        "WINNER": {
             "name": "winner",
+            "description": "This is the winner description"
+        },
+        "EXPLORER": {
+            "name": "explorer",
+            "description": "This is the explorer description"
+        },
+        "CURIOUS": {
+            "name": "curious",
+            "description": "This is the curious description"
+        },
+        "KILLER": {
+            "name": "killer",
+            "description": "This is the killer description"
+        },
+        "COLLECTOR": {
+            "name": "collector",
+            "description": "This is the collector description"
+        }
+    },
+    "features": {
+        "EXPLORATION_PERCENTAGE" : {
+            "name": "Exploration Percentage",
             "description": ""
         },
-        "EXPLORER" : {
-            "name": "explorer",
+        "SCORE" : {
+            "name": "Score",
+            "description": ""
+        },
+        "WINS" : {
+            "name": "Wins",
+            "description": ""
+        },
+        "CURIOSITY" : {
+            "name": "Curiosity",
+            "description": ""
+        },
+        "INTERACTIONS" : {
+            "name": "Interactions",
+            "description": ""
+        },
+        "COLLISIONS" : {
+            "name": "Collisions",
+            "description": ""
+        },
+        "KILLS" : {
+            "name": "Kills",
+            "description": ""
+        },
+        "ITEMS" : {
+            "name": "Items",
             "description": ""
         }
     },
     "files": {
-        "BUTTERFLIES" : {
-            "B2" : [
-            {
-                "file": "MAPElitesGameplay_30B0a_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B0b_butterflies_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
-                "featureX": "WINS",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B0c_butterflies_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
-                "featureX": "WINS",
-                "featureY": "EXPLORATION_PERCENTAGE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B0d_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "CURIOSITY"
-            },
-            {
-                "file": "MAPElitesGameplay_30B0e_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_COLLISIONS_perf_FAST_100_200",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "COLLISIONS"
-            },
-            {
-                "file": "MAPElitesGameplay_30B0f_butterflies_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
-                "featureX": "CURIOSITY",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B0g_butterflies_lvl0_x_CURIOSITY_y_COLLISIONS_perf_FAST_100_200",
-                "featureX": "CURIOSITY",
-                "featureY": "COLLISIONS"
-            }
-            ,
-            {
-                "file": "MAPElitesGameplay_30B0h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
-                "featureX": "COLLISIONS",
-                "featureY": "SCORE"
-            }],
-            "B3" : [ 
-            {
-                "file": "MAPElitesGameplay_30B03a_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03b_butterflies_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
-                "featureX": "WINS",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03c_butterflies_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
-                "featureX": "WINS",
-                "featureY": "EXPLORATION_PERCENTAGE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03d_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "CURIOSITY"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03e_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_COLLISIONS_perf_FAST_100_200",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "COLLISIONS"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03f_butterflies_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
-                "featureX": "CURIOSITY",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03g_butterflies_lvl0_x_CURIOSITY_y_COLLISIONS_perf_FAST_100_200",
-                "featureX": "CURIOSITY",
-                "featureY": "COLLISIONS"
-            },
-            {
-                "file": "MAPElitesGameplay_30B03h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
-                "featureX": "COLLISIONS",
-                "featureY": "SCORE"
-            }]
+        "BUTTERFLIES": {
+            "B2": [
+                {
+                    "file": "MAPElitesGameplay_30B0a_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0b_butterflies_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0c_butterflies_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "EXPLORATION_PERCENTAGE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0d_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0e_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_COLLISIONS_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "COLLISIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0f_butterflies_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0g_butterflies_lvl0_x_CURIOSITY_y_COLLISIONS_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "COLLISIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B0h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "COLLISIONS",
+                    "featureY": "SCORE"
+                }
+            ],
+            "B3": [
+                {
+                    "file": "MAPElitesGameplay_30B03a_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03b_butterflies_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03c_butterflies_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "EXPLORATION_PERCENTAGE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03d_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03e_butterflies_lvl0_x_EXPLORATION_PERCENTAGE_y_COLLISIONS_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "COLLISIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03f_butterflies_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03g_butterflies_lvl0_x_CURIOSITY_y_COLLISIONS_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "COLLISIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "COLLISIONS",
+                    "featureY": "SCORE"
+                }
+            ]
         },
-        "ZELDA" : {
-            "Z5" : [ 
-            {
-                "file": "MAPElitesGameplay_30Z1a_zelda_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30Z1b_zelda_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "CURIOSITY"
-            },
-            {
-                "file": "MAPElitesGameplay_30Z1c_zelda_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "INTERACTIONS"
-            },
-            {
-                "file": "MAPElitesGameplay_30Z1d_zelda_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "KILLS"
-            },
-            {
-                "file": "MAPElitesGameplay_30Z1f_zelda_x_CURIOSITY_y_SCORE_perf_FAST_100_250",
-                "featureX": "CURIOSITY",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30Z1g_zelda_x_INTERACTIONS_y_SCORE_perf_FAST_100_250",
-                "featureX": "INTERACTIONS",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30Z1h_zelda_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
-                "featureX": "INTERACTIONS",
-                "featureY": "KILLS"
-            }]
+        "ZELDA": {
+            "Z5": [
+                {
+                    "file": "MAPElitesGameplay_30Z1a_zelda_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z1b_zelda_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z1c_zelda_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z1d_zelda_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z1f_zelda_x_CURIOSITY_y_SCORE_perf_FAST_100_250",
+                    "featureX": "CURIOSITY",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z1g_zelda_x_INTERACTIONS_y_SCORE_perf_FAST_100_250",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z1h_zelda_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "KILLS"
+                }
+            ]
         },
-        "DIGDUG" : {
-            "D5" : [
-            {
-                "file": "MAPElitesGameplay_30D0a_digdug_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0b_digdug_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "CURIOSITY"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0c_digdug_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "INTERACTIONS"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0d_digdug_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "KILLS"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0e_digdug_x_EXPLORATION_PERCENTAGE_y_ITEMS_perf_FAST_100_250",
-                "featureX": "EXPLORATION_PERCENTAGE",
-                "featureY": "ITEMS"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0f_digdug_x_CURIOSITY_y_SCORE_perf_FAST_100_250",
-                "featureX": "CURIOSITY",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0g_digdug_x_INTERACTIONS_y_SCORE_perf_FAST_100_250",
-                "featureX": "INTERACTIONS",
-                "featureY": "SCORE"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0h_digdug_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
-                "featureX": "INTERACTIONS",
-                "featureY": "KILLS"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0i_digdug_x_INTERACTIONS_y_ITEMS_perf_FAST_100_250",
-                "featureX": "INTERACTIONS",
-                "featureY": "ITEMS"
-            },
-            {
-                "file": "MAPElitesGameplay_30D0j_digdug_x_KILLS_y_ITEMS_perf_FAST_100_250",
-                "featureX": "KILLS",
-                "featureY": "ITEMS"
-            }]
+        "DIGDUG": {
+            "D5": [
+                {
+                    "file": "MAPElitesGameplay_30D0a_digdug_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0b_digdug_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0c_digdug_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0d_digdug_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0e_digdug_x_EXPLORATION_PERCENTAGE_y_ITEMS_perf_FAST_100_250",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "ITEMS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0f_digdug_x_CURIOSITY_y_SCORE_perf_FAST_100_250",
+                    "featureX": "CURIOSITY",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0g_digdug_x_INTERACTIONS_y_SCORE_perf_FAST_100_250",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0h_digdug_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0i_digdug_x_INTERACTIONS_y_ITEMS_perf_FAST_100_250",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "ITEMS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D0j_digdug_x_KILLS_y_ITEMS_perf_FAST_100_250",
+                    "featureX": "KILLS",
+                    "featureY": "ITEMS"
+                }
+            ]
         }
     }
 }
