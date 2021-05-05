@@ -118,7 +118,7 @@
 		</TabList>
 	
 		<TabPanel>
-			<div class="container info">
+			<div class="container info" in:fade out:slide>
 				<h1>Demo</h1>
 				<h2>Visualize Diverse Gameplays Based on Agent Behaviour</h2>
 				<h3>Cristina Guerrero-Romero, Jeremy Gow (Demo supervisor)</h3>
@@ -136,7 +136,7 @@
 		</TabPanel>
 	
 		<TabPanel>
-			<div class="container">
+			<div class="container" in:fade out:slide>
 				<h1>Games</h1>
 			
 				<select bind:value={jsonFileName}>
@@ -163,7 +163,7 @@
 	
 		{#if matrix}
 			<TabPanel>
-				<div class="container">
+				<div in:fade out:slide>
 					{#if loadingPlot}
 						<Spinner color="info" type="border" />
 					{:else}
@@ -187,6 +187,7 @@
 				
 				<div class="container" id="agentData">
 					<CellData {agentData} {videoUrl} {gamePoster}/>
+					</div>
 				</div>
 			</TabPanel>
 		{/if}
