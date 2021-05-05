@@ -5,6 +5,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { each } from 'svelte/internal';
+	import { fade, slide, fly } from 'svelte/transition';
 
 	import { Tabs, TabList, TabPanel, Tab } from './TabLogic/tabs.js';
 
@@ -165,28 +166,31 @@
 			<TabPanel>
 				<div in:fade out:slide>
 					{#if loadingPlot}
-						<Spinner color="info" type="border" />
+						<div class="container">
+							<Spinner color="info" type="border" />
+						</div>
 					{:else}
-						<h1>{dataInfo['gameName']}</h1>
-						<h2>Features: {featureX} x {featureY}</h2>
-						<h3>
-							Behaviours enabled for agents: 
-							{#each dataInfo['behaviours'] as behaviour }
-								{behaviour}{" "}
-							{/each}
-						</h3>
-						<div>
-							adsfdsfdsf
-							fdsfdsf
+						<div class="container info">
+							<h1>{dataInfo['gameName']}</h1>
+							<h2>Features: {featureX} x {featureY}</h2>
+							<h3>
+								Behaviours enabled for agents: 
+								{#each dataInfo['behaviours'] as behaviour }
+									{behaviour}{" "}
+								{/each}
+							</h3>
+							<div>
+								adsfdsfdsf
+								fdsfdsf
+							</div>
 						</div>
 					{/if}
-				</div>
-				<div class="container">
-					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo} bind:loadingPlot/>
-				</div>
-				
-				<div class="container" id="agentData">
-					<CellData {agentData} {videoUrl} {gamePoster}/>
+					<div class="container">
+						<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo} bind:loadingPlot/>
+					</div>
+					
+					<div class="container" id="agentData">
+						<CellData {agentData} {videoUrl} {gamePoster}/>
 					</div>
 				</div>
 			</TabPanel>
