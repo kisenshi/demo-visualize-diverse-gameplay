@@ -6,6 +6,7 @@
     import { Card, CardBody, CardHeader, CardTitle } from 'sveltestrap';
     import { Button } from 'sveltestrap';
     import { Progress } from 'sveltestrap';
+    import { Table } from 'sveltestrap';
 
     export let agentData = '';
     export let dataInfo;
@@ -16,6 +17,10 @@
     function playVideo(event) {
 		alert(event.detail.text);
 	}
+
+    function isFeature(feature) {
+        return ((feature == dataInfo["featureX"])||(feature == dataInfo["featureY"]));
+    }
 </script>
     {#if agentData}
         <div in:slide>
@@ -31,7 +36,7 @@
                                         {#each dataInfo['behaviours'] as behaviour, i}
                                         <span>
                                             <Badge color="info">{configInfo["behaviours"][behaviour]["name"]}</Badge>
-                                            <Progress value={agentData.heuristicsWeightList[i] * 100} />
+                                            <Progress color="info" value={agentData.heuristicsWeightList[i] * 100} />
                                         </span>
                                     {/each}
                                     </div>
@@ -58,7 +63,61 @@
                                 <Card>
                                     <Container>
                                         <CardBody>
-                                            <div class="data">
+                                            <Table>
+                                                <thead>
+                                                  <tr>
+                                                    <th>Stat</th>
+                                                    <th>Result</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td class="statCell">Game over ts</td>
+                                                    <td><Badge {color}>{(agentData.gameStats.gameOverTickStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Wins</td>
+                                                    <td><Badge color="{isFeature("WINS") ? "primary" : color}">{(agentData.gameStats.winStats.mean * 100).toFixed(2)}%</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Score</td>
+                                                    <td><Badge color="{isFeature("SCORE") ? "primary" : color}">{(agentData.gameStats.scoreStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">% Explored</td>
+                                                    <td><Badge color="{isFeature("EXPLORATION_PERCENTAGE") ? "primary" : color}">{(agentData.gameStats.percentageExploredStats.mean * 100).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Unique interactions</td>
+                                                    <td><Badge color="{isFeature("SPRITES_INTERACTION") ? "primary" : color}">{(agentData.gameStats.nUniqueSpriteInteractionsStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Curiosity</td>
+                                                    <td><Badge color="{isFeature("CURIOSITY") ? "primary" : color}">{(agentData.gameStats.nCuriosityInteractionsStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Total interactions</td>
+                                                    <td><Badge color="{isFeature("INTERACTIONS") ? "primary" : color}">{(agentData.gameStats.nTotalInteractionsStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Collisions</td>
+                                                    <td><Badge color="{isFeature("COLLISIONS") ? "primary" : color}">{(agentData.gameStats.nUniqueSpriteInteractionsStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Hits</td>
+                                                    <td><Badge color="{isFeature("HITS") ? "primary" : color}">{(agentData.gameStats.nTotalHitsStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Kills</td>
+                                                    <td><Badge color="{isFeature("KILLS") ? "primary" : color}">{(agentData.gameStats.nTotalKillsStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="statCell">Items collected</td>
+                                                    <td><Badge color="{isFeature("ITEMS") ? "primary" : color}">{(agentData.gameStats.nTotalItemsCollectedStats.mean).toFixed(2)}</Badge></td>
+                                                  </tr>
+                                                </tbody>
+                                            </Table>
+                                            <!--<div class="data">
                                                 <span>Game over ts: <Badge {color}>{(agentData.gameStats.gameOverTickStats.mean).toFixed(2)}</Badge></span>
                                                 <span>Wins: <Badge {color}>{(agentData.gameStats.winStats.mean * 100).toFixed(2)}%</Badge></span>
                                                 <span>Score: <Badge {color}>{(agentData.gameStats.scoreStats.mean).toFixed(2)}</Badge></span>
@@ -70,7 +129,7 @@
                                                 <span>Hits: <Badge {color}>{(agentData.gameStats.nTotalHitsStats.mean).toFixed(2)}</Badge></span>
                                                 <span>Kills: <Badge {color}>{(agentData.gameStats.nTotalKillsStats.mean).toFixed(2)}</Badge></span>
                                                 <span>Items collected: <Badge {color}>{(agentData.gameStats.nTotalItemsCollectedStats.mean).toFixed(2)}</Badge></span>
-                                            </div>
+                                            </div>-->
                                         </CardBody>
                                     </Container>
                                 </Card>
@@ -101,12 +160,12 @@
         text-align: left;
     }
 
-    .data {
+    .statCell {
         text-align: right;
     }
 
     @media only screen and (max-width: 991px) {
-        .data {
+        .statCell {
             text-align: center;
         }
     }
