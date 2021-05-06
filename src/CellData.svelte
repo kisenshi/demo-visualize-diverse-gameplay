@@ -5,8 +5,7 @@
     import { fade, slide, fly } from 'svelte/transition';
 
     export let agentData = '';
-    export let videoUrl = '';
-    export let gamePoster = '';
+    export let dataInfo;
 
     let color = "info";
 
@@ -43,7 +42,7 @@
                     </div>
                 </Col>
                 <Col lg="8">
-                    <VideoPlayer poster={gamePoster} source={videoUrl}/>
+                    <VideoPlayer poster={dataInfo["gamePoster"]} source={agentData["videoUrl"]}/>
                 </Col>
             </Row>
         </div>
