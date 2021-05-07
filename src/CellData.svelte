@@ -17,6 +17,17 @@
     function isFeature(feature) {
         return ((feature == dataInfo["featureX"])||(feature == dataInfo["featureY"]));
     }
+
+    let performanceColor;
+    var performanceWindow = dataInfo["performanceMax"] - dataInfo["performanceMin"];
+    var performanceWindowSize = performanceWindow/3;
+    $: if (agentData.gameStats.gameOverTickStats.mean < (dataInfo["performanceMin"] + performanceWindowSize)){
+        performanceColor = "success";
+    } else if (agentData.gameStats.gameOverTickStats.mean < (dataInfo["performanceMin"] + 2*performanceWindowSize)){
+        performanceColor = "warning";
+    } else {
+        performanceColor = "danger";
+    }
 </script>
 
 <div in:slide>
@@ -43,9 +54,10 @@
                             <div class="information">
                                 <p>We show the <i>weight</i> each of the behaviours has in this particular agent, driving its motivation and influencing its actions in the game.</p>
                                 <p>
-                                    Below, we present the stats resulting from this agent after playing the game 100 times. 
+                                    We present the stats resulting from this agent after playing the game 100 times. 
                                     The data shown is the average, serving as reference of what to expect when this agent plays the game.
-                                    The results corresponding to the features conforming the map this agent was generated from are highlighted.
+                                    The stat corresponding to the performance is displayed in 3 colours: green, yellow or red, depending on its value compared to the rest of agents generated for the selected features.
+                                    The results corresponding to the features conforming the map are highlighted in blue.
                                 </p>
                                 <p>The video, if available, shows a pre-recorded gameplay. Download an executable and instructions to run this agent locally in <a href="#">here</a>.</p>
                             </div>
@@ -73,7 +85,7 @@
                                         <tbody>
                                             <tr>
                                             <td class="statCell">Game over ts</td>
-                                            <td><Badge {color}>{(agentData.gameStats.gameOverTickStats.mean).toFixed(2)}</Badge></td>
+                                            <td><Badge color="{performanceColor}">{(agentData.gameStats.gameOverTickStats.mean).toFixed(2)}</Badge></td>
                                             </tr>
                                             <tr>
                                             <td class="statCell">Wins</td>

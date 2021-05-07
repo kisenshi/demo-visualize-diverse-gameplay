@@ -81,12 +81,24 @@
 				mapElites = jsonData.result.mapElites;
 				var occupiedCells = jsonData.result.occupiedCellsIdx;
 				
+				var max = null;
+				var min = null;
 				occupiedCells.forEach(occupiedCellInfo => {
 					var x = occupiedCellInfo['x']
 					var y = occupiedCellInfo['y']
-					matrix[y][x] = mapElites[x][y].performance * (-1);
-				});
+					var performanceCell = mapElites[x][y].performance * (-1);
+					matrix[y][x] = performanceCell
 
+					if ((max == null) || (max < performanceCell)){
+						max = performanceCell;
+					}
+					if ((min == null) || (min > performanceCell)){
+						min = performanceCell;
+					}
+				});
+				dataInfo["performanceMax"] = max;
+				dataInfo["performanceMin"] = min;
+				
 				loadingPlot = true;
 				heatmapTab.triggerTab();
 				agentData = null;
