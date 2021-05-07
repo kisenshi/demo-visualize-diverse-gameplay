@@ -172,7 +172,9 @@
 					</div>
 					
 					<div class="container" id="agentData">
-						<CellData {configInfo} {agentData} {dataInfo}/>
+						{#if agentData}
+							<CellData {configInfo} {agentData} {dataInfo}/>
+						{/if}
 					</div>
 				</div>
 			</TabPanel>
