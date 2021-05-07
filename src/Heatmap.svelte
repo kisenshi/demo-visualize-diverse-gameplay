@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { Alert } from 'sveltestrap';
 
     export let getCellInfo;
     
@@ -46,7 +47,7 @@
     };
 
     let layout = {
-        title: 'Each cell represents a member of the team of agents generated',
+        title: '',
         annotations: [],
         xaxis: xAxisTemplate,
         yaxis: yAxisTemplate,     
@@ -96,6 +97,13 @@
     });
             
 </script>
+
+{#if loadingPlot==false}
+    <Alert color="primary">
+        Each cell represents a member of the team of agents generated for the pair of selected features.<br/>
+        Click on the cells to see detailed information about the gameplay of each agent.
+    </Alert>
+{/if}
 
 <div id="plotly">
     <div id="plotDiv"></div>
