@@ -8,68 +8,68 @@
         "ZELDA": {
             "name": "zelda",
             "screenshot": "zelda.png",
-            "description": "Zelda."
+            "description": "This game is conformed by three types of monsters (spiders, scorpions and bats), that are NPCs that move randomly; a key, which is a resource, a door, which is an immutable element the player can interact with after collecting the key; and walls, conforming the limits of the map. The player can move up, down, right and left and use a sword. The goal of the game is collecting the key and opening the door before the time runs out or the player gets killed by the monsters. The player can kill the monsters by hitting them with the sword, which increases the score by 2, independently of the type of monster. The player can also be killed by the monsters when colliding with them, which reduces the score by 1 and ends the game. The player can collect the key by colliding with it, increasing the score by 1. Collecting this key is necessary to win the game, as it is required to bring it to the door to open it. Colliding with the door after collecting the key increases the score by 1 and ends the game, with the player as a winner. If the player tries to collide with the door without the key, nothing happens and the door blocks its path."
         },
         "DIGDUG": {
             "name": "digdug",
             "screenshot": "digdug.png",
-            "description": "digdug description"
+            "description": "The goal is to kill all monsters (NPCs) and collect all gems and gold (resources) of the map before the time runs out, while avoiding being killed by the enemies. The player can move up, down, left and right and has a shovel that can be used to a) hit walls to break them; b) hit rock blocks (those marked with a G) to create gold and c) hit monsters to kill them. Collecting gems increases the score in 1 and killing monsters in 2."
         }
     },
     "behaviours": {
         "WINNER": {
             "name": "winner",
-            "description": "This is the winner description"
+            "description": "It prioritizes winning the game while maximizing the score difference."
         },
         "EXPLORER": {
             "name": "explorer",
-            "description": "This is the explorer description"
+            "description": "It maximizes the physical exploration of the map, which is divided into tiles. It prioritizes visiting those positions that haven’t been visited before and, once visited, those that have been visited the least."
         },
         "CURIOUS": {
             "name": "curious",
-            "description": "This is the curious description"
+            "description": "It maximizes the discovery and interaction with elements in the game, prioritizing interactions with new sprites."
         },
         "KILLER": {
             "name": "killer",
-            "description": "This is the killer description"
+            "description": "It maximizes destroying Non-Playable Characters (NPCs)."
         },
         "COLLECTOR": {
             "name": "collector",
-            "description": "This is the collector description"
+            "description": "It maximizes the collection of resources."
         }
     },
     "features": {
         "EXPLORATION_PERCENTAGE" : {
             "name": "Exploration Percentage",
-            "description": ""
+            "description": "Percentage of the available map visited."
         },
         "SCORE" : {
             "name": "Score",
-            "description": ""
+            "description": "Total amount of points at the end of the game."
         },
         "WINS" : {
             "name": "Wins",
-            "description": ""
+            "description": "Percentage of wins."
         },
         "CURIOSITY" : {
             "name": "Curiosity",
-            "description": ""
+            "description": "Unique interactions with different type of elements in different locations of the map."
         },
         "INTERACTIONS" : {
             "name": "Interactions",
-            "description": ""
+            "description": "Total number of interactions of any type."
         },
         "COLLISIONS" : {
             "name": "Collisions",
-            "description": ""
+            "description": "Total player interaction with other elements of the game."
         },
         "KILLS" : {
             "name": "Kills",
-            "description": ""
+            "description": "Total number of NPCs hit"
         },
         "ITEMS" : {
             "name": "Items",
-            "description": ""
+            "description": "Total number of resources collected"
         }
     },
     "files": {
