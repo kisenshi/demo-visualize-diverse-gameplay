@@ -49,9 +49,6 @@
 	});
 
 	function loadMatrixData() {
-		/*
-		return fetch('/json/test.json')
-		.then(response => response.json());*/
 		if (!jsonFileName) {
 			console.log('not chosen')
 			return;
@@ -63,6 +60,7 @@
 		fetch(fetchFile)
 			.then((response) => response.json())
 			.then((jsonData) => {
+				dataInfo['experimentId'] = jsonData.config.experimentId;
 				dataInfo['gameName'] = jsonData.config.frameworkConfig.game;
 				dataInfo['agentName'] = jsonData.config.frameworkConfig.agent;
 				dataInfo['behaviours'] = jsonData.teamInfo.enabledBehaviours;
@@ -95,17 +93,30 @@
 			});
   	}
 
+	function setGameplayAvailability(path) {
+        fetch(path).then(response => {
+            if(response.status == 404) {
+                agentData['gameplayAvailable'] = false;
+            } else {
+				agentData['gameplayAvailable'] = true;
+			}
+        });
+    }
+
 	const getCellInfo = (cellIdxFeatureX, cellIdxFeatureY) => {
 		agentData = mapElites[cellIdxFeatureX][cellIdxFeatureY];
 		agentData["cellX"] = cellIdxFeatureX;
 		agentData["cellY"] = cellIdxFeatureY;
 
-		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
-		console.log(agentData);
+		agentData["videoUrl"] = dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".webm";
 		
-		agentData["videoUrl"] = './video/demo.mp4';	
+		setGameplayAvailability(agentData["videoUrl"]);
 
-		animateScroll.scrollTo({element: '#agentData'});	
+		animateScroll.scrollTo({element: '#agentData'});
+
+		// DEBUG
+		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
+		console.log(agentData);	
 	}
 </script>
 

@@ -14,10 +14,6 @@
 
     let color = "secondary";
 
-    function playVideo(event) {
-		alert(event.detail.text);
-	}
-
     function isFeature(feature) {
         return ((feature == dataInfo["featureX"])||(feature == dataInfo["featureY"]));
     }
@@ -142,7 +138,11 @@
                         <Card>
                             <Container>
                                 <CardBody>
-                                    <VideoPlayer poster={dataInfo["gamePoster"]} source={agentData["videoUrl"]} color="#65a7ff"/>
+                                    {#if agentData['gameplayAvailable']}
+                                        <VideoPlayer poster={dataInfo["gamePoster"]} source={agentData["videoUrl"]} color="#65a7ff"/>
+                                    {:else}
+                                        <p>Video not available</p>
+                                    {/if}
                                 </CardBody>
                             </Container>
                         </Card>
