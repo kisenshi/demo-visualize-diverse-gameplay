@@ -101,7 +101,7 @@
 {#if loadingPlot==false}
     <Alert color="primary">
         Each cell represents a member of the team of agents generated for the pair of selected features.<br/>
-        Click on the cells to see detailed information about the gameplay of each agent.
+        Click on the cells to see detailed information about the gameplay and resulting stats of each agent.
     </Alert>
 {/if}
 
