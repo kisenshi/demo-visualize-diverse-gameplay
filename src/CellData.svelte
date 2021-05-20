@@ -28,6 +28,9 @@
     } else {
         performanceColor = "danger";
     }
+
+    let openDownloadDetails = false
+	const toggleDownload = () => openDownloadDetails = !openDownloadDetails
 </script>
 
 <div in:slide>
@@ -59,7 +62,7 @@
                                     The stat corresponding to the performance is displayed in 3 colours: green, yellow or red, depending on its value compared to the rest of agents generated for the selected features.
                                     The results corresponding to the features conforming the map are highlighted in blue.
                                 </p>
-                                <p>The video, if available, shows a pre-recorded gameplay. Download an executable and instructions to run this agent locally in <a href="#">here</a>.</p>
+                                <p>The video, if available, shows a pre-recorded gameplay. Download an executable and instructions to run this agent locally below.</p>
                             </div>
                         </CardBody>
                     </Col>
@@ -158,6 +161,33 @@
                                 </CardBody>
                             </Container>
                         </Card>
+                        <Card>
+                            <Container>
+                                <button class="accordion" on:click={toggleDownload} aria-expanded={openDownloadDetails}>
+                                    <svg style="tran"  width="20" height="20" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path d="M9 5l7 7-7 7"></path>
+                                    </svg> Download and run locally
+                                </button>
+                                {#if openDownloadDetails}
+                                    <div transition:slide={{ duration: 300 }} class="information">
+                                        <CardBody>
+                                            <p>To see for yourself how this agent behaves, you can download the following files and run it locally:</p>
+                                            <ul>
+                                                <li>
+                                                    <a href="download/automatedGameplay.zip">automatedGameplay.zip</a> Contains the instructions
+                                                    and necessary files to run the automated gameplay. You only need to download this 
+                                                    once.
+                                                </li>
+                                                <li>
+                                                    Config file. Contains the description of the agent and information about the game and level
+                                                    to play. 
+                                                </li>
+                                            </ul>
+                                        </CardBody>
+                                    </div>
+                                {/if}
+                            </Container>
+                        </Card>
                     </Col>
                 </Row>
             </Container>
@@ -185,4 +215,21 @@
             text-align: center;
         }
     }
+
+	.accordion {
+        border: none; 
+        background: none;
+        display:block; 
+        color: inherit; 
+        cursor: pointer; 
+        margin: 0; 
+        padding-bottom: 0.5em; 
+        padding-top: 0.5em
+    }
+
+	svg { 
+        transition: transform 0.2s ease-in;
+	}
+	
+	[aria-expanded=true] svg { transform: rotate(0.25turn); }
 </style>
