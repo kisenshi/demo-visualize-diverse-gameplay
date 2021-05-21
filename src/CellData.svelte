@@ -31,14 +31,14 @@
     let openDownloadDetails = false
 	const toggleDownload = () => openDownloadDetails = !openDownloadDetails
 
-    let teamMemberConfig = {
+    $: teamMemberConfig = {
         game: dataInfo['gameName'],
         level: dataInfo['level'],
         behaviours: dataInfo['behaviours'],
         weights: agentData['heuristicsWeightList']
     }
 
-    let jsonData = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(teamMemberConfig,null,'\t'));
+    $: jsonData = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(teamMemberConfig,null,'\t'));
 </script>
 
 <div in:slide>
