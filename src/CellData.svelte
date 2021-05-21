@@ -35,8 +35,7 @@
         game: dataInfo['gameName'],
         level: dataInfo['level'],
         behaviours: dataInfo['behaviours'],
-        weights: agentData['heuristicsWeightList'],
-        experimentId: dataInfo['experimentId']
+        weights: agentData['heuristicsWeightList']
     }
 
     let jsonData = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(teamMemberConfig,null,'\t'));
