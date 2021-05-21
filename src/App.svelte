@@ -62,6 +62,7 @@
 			.then((jsonData) => {
 				dataInfo['experimentId'] = jsonData.config.experimentId;
 				dataInfo['gameName'] = jsonData.config.frameworkConfig.game;
+				dataInfo['level'] = jsonData.config.frameworkConfig.level;
 				dataInfo['agentName'] = jsonData.config.frameworkConfig.agent;
 				dataInfo['behaviours'] = jsonData.teamInfo.enabledBehaviours;
 				dataInfo['featureX'] = jsonData.config.mapElitesConfig.featureX;
