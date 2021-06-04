@@ -177,15 +177,12 @@
                                                     <li>
                                                         <a href="download/automatedGameplay.zip">automatedGameplay.zip</a>. Contains the instructions
                                                         and necessary files to run the automated gameplay. You only need to download this 
-                                                    and necessary files to run the automated gameplay. You only need to download this 
-                                                        and necessary files to run the automated gameplay. You only need to download this 
                                                         once.
                                                     </li>
                                                     <li>
-                                                        <a href="data:{jsonData}" download="automatedGameplayConfig.json">Config file</a>. Contains the description of the agent and information about the game and level
-                                                        to play. Alternatively, you can copy and paste the folloein json data in the <i>automatedGameplayConfig.json</i> provided by <i>automatedGameplay.zip</i>. 
-                                                    to play. Alternatively, you can copy and paste the folloein json data in the <i>automatedGameplayConfig.json</i> provided by <i>automatedGameplay.zip</i>. 
-                                                        to play. Alternatively, you can copy and paste the folloein json data in the <i>automatedGameplayConfig.json</i> provided by <i>automatedGameplay.zip</i>. 
+                                                        <a href="data:{jsonData}" download="automatedGameplayConfig.json">Config file</a>. 
+                                                        Contains the description of the agent and information about the game and level to play. 
+                                                        Alternatively, you can copy and paste the following json data in the <i>automatedGameplayConfig.json</i> provided by <i>automatedGameplay.zip</i>. 
                                                     </li>
                                                 </ul>
                                                 <p></p>
