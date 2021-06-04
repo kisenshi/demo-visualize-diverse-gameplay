@@ -121,7 +121,7 @@
 		agentData["cellX"] = cellIdxFeatureX;
 		agentData["cellY"] = cellIdxFeatureY;
 
-		agentData["videoUrl"] = dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".webm";
+		agentData["videoUrl"] = "video/"+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".webm";
 		
 		setGameplayAvailability(agentData["videoUrl"]);
 
