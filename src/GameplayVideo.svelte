@@ -2,6 +2,7 @@
     import { Spinner } from 'sveltestrap';
     import { Progress } from 'sveltestrap';
     import { Button } from 'sveltestrap';
+    import { Icon } from 'sveltestrap';
 
     export let loadingVideo;
     export let videoAvailable;
@@ -66,9 +67,9 @@
                 <div class="controlBtn">
                     <Button color={controlColor} on:click={handlePlay} disabled={disablePlayButton}>
                         {#if paused}
-                            Play
+                            <Icon name="play-fill"/>
                         {:else}
-                            Pause
+                            <Icon name="pause-fill"/>
                         {/if}
                     </Button>
                 </div>
