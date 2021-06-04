@@ -6,7 +6,6 @@
 	import { onMount } from 'svelte';
 	import { fade, slide } from 'svelte/transition';
 
-	import * as animateScroll from "svelte-scrollto";
 	import { Spinner } from 'sveltestrap';
 	import { Button } from 'sveltestrap';
 	import { FormGroup, CustomInput } from 'sveltestrap';
@@ -14,7 +13,6 @@
 	import { Tabs, TabList, TabPanel, Tab } from './TabLogic/tabs.js';
 
 	import Heatmap from './Heatmap.svelte';
-	import CellData from './CellData.svelte';
 	import GameFeaturesInfo from './GameFeaturesInfo.svelte';
 	import DemoInfo from './DemoInfo.svelte';
 
@@ -33,8 +31,6 @@
 	let xLabels;
 	let yLabels;
 
-	let agentData;
-
 	let welcomeTab;
 	let chooseDataTab;
 	let heatmapTab;
@@ -50,7 +46,7 @@
 
 	function loadMatrixData() {
 		if (!jsonFileName) {
-			console.log('not chosen')
+			console.log('json file not chosen')
 			return;
 		}
 
@@ -74,9 +70,6 @@
 
 				xLabels = jsonData.featuresDetails[featureX].bucketsRangeInfo;
 				yLabels = jsonData.featuresDetails[featureY].bucketsRangeInfo;
-
-				console.log(xLabels);
-				console.log(yLabels);
 
 				matrix = new Array(yLabels.length).fill(null).map(() => new Array(xLabels.length).fill(null));
 				mapElites = jsonData.result.mapElites;
@@ -102,35 +95,8 @@
 				
 				loadingPlot = true;
 				heatmapTab.triggerTab();
-				agentData = null;
 			});
   	}
-
-	function setGameplayAvailability(path) {
-        fetch(path).then(response => {
-            if(response.status == 404) {
-                agentData['gameplayAvailable'] = false;
-            } else {
-				agentData['gameplayAvailable'] = true;
-			}
-        });
-    }
-
-	const getCellInfo = (cellIdxFeatureX, cellIdxFeatureY) => {
-		agentData = mapElites[cellIdxFeatureX][cellIdxFeatureY];
-		agentData["cellX"] = cellIdxFeatureX;
-		agentData["cellY"] = cellIdxFeatureY;
-
-		agentData["videoUrl"] = "video/"+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".webm";
-		
-		setGameplayAvailability(agentData["videoUrl"]);
-
-		animateScroll.scrollTo({element: '#agentData'});
-
-		// DEBUG
-		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
-		console.log(agentData);	
-	}
 </script>
 
 <main id="my-style">
@@ -191,15 +157,9 @@
 							<GameFeaturesInfo {configInfo} {dataInfo}/>
 						</div>
 					{/if}
-					<div class="container">
-						<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {getCellInfo} bind:loadingPlot/>
-					</div>
-					
-					<div class="container" id="agentData">
-						{#if agentData}
-							<CellData {configInfo} {agentData} {dataInfo}/>
-						{/if}
-					</div>
+
+					<Heatmap {matrix} {featureX} {xLabels} {featureY} {yLabels} {mapElites} {configInfo} {dataInfo} bind:loadingPlot/>
+	
 				</div>
 			</TabPanel>
 		{/if}

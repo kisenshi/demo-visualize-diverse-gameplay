@@ -1,13 +1,15 @@
 <script>
     import { onMount } from 'svelte';
     import { Alert } from 'sveltestrap';
+    import * as animateScroll from "svelte-scrollto";
 
-    export let getCellInfo;
+    import CellData from './CellData.svelte';
     
     let plotlyScript = document.createElement('script');
     plotlyScript.src = "https://cdn.plot.ly/plotly-latest.min.js"
     document.head.append(plotlyScript);
 
+    // heatmap data
     export let matrix;
     export let xLabels;
     export let yLabels;
@@ -15,6 +17,18 @@
     export let featureY;
     export let loadingPlot;
 
+    // necessary to get agent info of each cell
+    export let configInfo;
+    export let dataInfo;
+    export let mapElites;
+    let agentData = null;
+
+    // video data
+    let loadingVideo = false;
+    let videoAvailable = false;
+    let videoSrc;
+
+    // Heatmap plot config
     let GnYlRd = [
         [0, 'green'], 
         [0.5, 'yellow'],
@@ -73,7 +87,6 @@
                 
                 var cellIdxFeatureX = pn[1];
                 var cellIdxFeatureY = pn[0]
-                getCellInfo(cellIdxFeatureX, cellIdxFeatureY);
 
                 // highlight cell
                 if (plotDiv.data.length > 1) {
@@ -92,22 +105,65 @@
                 }];
                 
                 Plotly.plot(plotDiv, highlightData);
+
+                updateAgentData(cellIdxFeatureX, cellIdxFeatureY);
             });
         }
     });
+
+    function updateAgentData(cellIdxFeatureX, cellIdxFeatureY) {
+        agentData = mapElites[cellIdxFeatureX][cellIdxFeatureY];
+		agentData["cellX"] = cellIdxFeatureX;
+		agentData["cellY"] = cellIdxFeatureY;
+
+		agentData["videoUrl"] = "video/"+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".webm";
+		
+		animateScroll.scrollTo({element: '#agentData'});
+
+		// DEBUG
+		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
+		console.log(agentData);	
+
+        // Reload video
+        updateVideo();
+    }
+
+    async function updateVideo() {
+        loadingVideo = true;
+        console.log("Loading "+agentData["videoUrl"]);
+        const res = await fetch(agentData["videoUrl"]);
+        console.log(res);
+        if(res.status == 200) {
+            videoSrc = agentData["videoUrl"];
+            videoAvailable = true;
+        } else {
+            videoAvailable = false;
+        }
+        loadingVideo = false;
+        console.log("Video loaded");
+    }
             
 </script>
 
-{#if loadingPlot==false}
-    <Alert color="primary">
-        Each cell represents a member of the team of agents generated for the pair of selected features.<br/>
-        Click on the cells to see detailed information about the gameplay and resulting stats of each agent.
-    </Alert>
-{/if}
+<div class="container">
+    {#if loadingPlot==false}
+        <Alert color="primary">
+            Each cell represents a member of the team of agents generated for the pair of selected features.<br/>
+            Click on the cells to see detailed information about the gameplay and resulting stats of each agent.
+        </Alert>
+    {/if}
 
-<div id="plotly">
-    <div id="plotDiv"></div>
+    <div id="plotly">
+        <div id="plotDiv"></div>
+    </div>
 </div>
+
+<div class="container" id="agentData">
+    {#if agentData}
+        <CellData {agentData} {configInfo} {dataInfo} {loadingVideo} {videoAvailable} {videoSrc}></CellData>
+    {/if}
+</div>
+
 
 <style>
     #plotly {
