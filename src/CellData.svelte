@@ -5,6 +5,7 @@
     import { Card, CardBody, CardHeader, CardTitle } from 'sveltestrap';
     import { Progress } from 'sveltestrap';
     import { Table } from 'sveltestrap';
+    import { Popover } from 'sveltestrap';
 
     import GameplayVideo from './GameplayVideo.svelte';
 
@@ -62,7 +63,14 @@
                                 <div class="information">
                                     {#each dataInfo['behaviours'] as behaviour, i}
                                     <span>
-                                        <Badge color="info">{configInfo["behaviours"][behaviour]["name"]}</Badge>
+                                        <Badge id="behaviour-info-{behaviour}" color="info">{configInfo["behaviours"][behaviour]["name"]}</Badge>
+                                        <Popover
+                                            trigger="hover"
+                                            placement="left"
+                                            target="behaviour-info-{behaviour}"
+                                            title="{configInfo["behaviours"][behaviour]["name"]}">
+                                            {configInfo["behaviours"][behaviour]["description"]}
+                                        </Popover>
                                         <Progress color="info" value={agentData.heuristicsWeightList[i] * 100} />
                                     </span>
                                 {/each}
