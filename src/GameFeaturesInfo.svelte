@@ -1,5 +1,6 @@
 <script>
 
+import { Alert } from 'sveltestrap';
 import { Col, Container, Row } from 'sveltestrap';
 import { Card, CardBody, CardHeader, CardTitle } from 'sveltestrap';
 import { Popover, Button } from 'sveltestrap';
@@ -12,6 +13,9 @@ export let dataInfo;
 <h1>{dataInfo['gameName']}</h1>
 <Card>
     <Container>
+        <Alert color="info" dismissible>
+            Hover over the features, behaviours and game screenshot for more information.
+        </Alert>
         <Row>
             <Col lg="6">
                 <CardBody>

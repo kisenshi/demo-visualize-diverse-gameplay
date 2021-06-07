@@ -3,6 +3,7 @@
     import { Progress } from 'sveltestrap';
     import { Button } from 'sveltestrap';
     import { Icon } from 'sveltestrap';
+    import { Alert } from 'sveltestrap';
 
     export let loadingVideo;
     export let videoAvailable;
@@ -73,6 +74,11 @@
                         {/if}
                     </Button>
                 </div>
+                {#if refreshingVideo}
+                    <Alert color="warning">
+                        Loading video data. Sometimes this can take a while, so please be patient or try reloading the site again.
+                    </Alert>
+                {/if}
             </div>
         {:else}
             <p>Video not available</p>
@@ -82,6 +88,10 @@
 
 <style>
     .progressBar{
+        margin-bottom: 10px;
+    }
+
+    .controlBtn{
         margin-bottom: 10px;
     }
 
