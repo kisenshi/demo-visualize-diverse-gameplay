@@ -27,6 +27,7 @@
     let loadingVideo = false;
     let videoAvailable = false;
     let videoSrc;
+    let refreshingVideo = false;
 
     // Heatmap plot config
     let GnYlRd = [
@@ -112,6 +113,8 @@
     });
 
     function updateAgentData(cellIdxFeatureX, cellIdxFeatureY) {
+        refreshingVideo = true;
+        
         agentData = mapElites[cellIdxFeatureX][cellIdxFeatureY];
 		agentData["cellX"] = cellIdxFeatureX;
 		agentData["cellY"] = cellIdxFeatureY;
@@ -122,7 +125,7 @@
 
 		// DEBUG
 		console.log("Feature X id: " + cellIdxFeatureX + " Feature Y id: " + cellIdxFeatureY);
-		console.log(agentData);	
+		console.log(agentData);
 
         // Reload video
         updateVideo();
@@ -160,7 +163,7 @@
 
 <div class="container" id="agentData">
     {#if agentData}
-        <CellData {agentData} {configInfo} {dataInfo} {loadingVideo} {videoAvailable} {videoSrc}></CellData>
+        <CellData {agentData} {configInfo} {dataInfo} {loadingVideo} {videoAvailable} {videoSrc} bind:refreshingVideo></CellData>
     {/if}
 </div>
 

@@ -14,6 +14,7 @@
     export let loadingVideo;
     export let videoAvailable;
     export let videoSrc;
+    export let refreshingVideo;
 
     let color = "secondary";
 
@@ -156,7 +157,7 @@
                             <Card>
                                 <Container>
                                     <CardBody>
-                                        <GameplayVideo {loadingVideo} {videoAvailable} {videoSrc} videoPoster={dataInfo['gamePoster']}></GameplayVideo>
+                                        <GameplayVideo {loadingVideo} {videoAvailable} {videoSrc} videoPoster={dataInfo['gamePoster']} bind:refreshingVideo></GameplayVideo>
                                     </CardBody>
                                 </Container>
                             </Card>

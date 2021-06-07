@@ -8,15 +8,16 @@
     export let videoAvailable;
     export let videoSrc;
     export let videoPoster;
+    export let refreshingVideo;
    
     let currentTime = 0;
 	let duration;
     let paused = true;
 
     let controlColor = "primary";
-    let disablePlayButton = true;
 
     $: gameplayProgress = currentTime / duration;
+    $: paused = refreshingVideo ? true : paused;
 
     function handlePlay() {
 		if (paused) {
@@ -28,7 +29,7 @@
 
     function gameplayVideoLoaded() {
         videoPanel.resetTime();
-        disablePlayButton = false;
+        refreshingVideo = false;
     }
 
     export const videoPanel = {
@@ -59,13 +60,12 @@
             bind:paused>
             <track kind="captions">
             </video>
-            
             <div class="videoControl">
                 <div class="progressBar">
                     <Progress color={controlColor} value={(gameplayProgress * 100) || 0} />
                 </div>
                 <div class="controlBtn">
-                    <Button color={controlColor} on:click={handlePlay} disabled={disablePlayButton}>
+                    <Button color={controlColor} on:click={handlePlay} disabled={refreshingVideo}>
                         {#if paused}
                             <Icon name="play-fill"/>
                         {:else}
