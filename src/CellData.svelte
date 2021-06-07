@@ -74,8 +74,6 @@
                                     <p>We show the <i>weight</i> each of the behaviours has in this particular agent, driving its motivation and influencing its actions in the game.</p>
                                     <p>
                                         We present the stats resulting from this agent after playing the game 100 times. 
-                                    We present the stats resulting from this agent after playing the game 100 times. 
-                                        We present the stats resulting from this agent after playing the game 100 times. 
                                         The data shown is the average, serving as reference of what to expect when this agent plays the game.
                                         The stat corresponding to the performance is displayed in 3 colours: green, yellow or red, depending on its value compared to the rest of agents generated for the selected features.
                                         The results corresponding to the features conforming the map are highlighted in blue.
