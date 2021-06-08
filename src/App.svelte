@@ -114,7 +114,13 @@
 	
 		<TabPanel>
 			<div class="container info" in:fade out:slide>
-				<DemoInfo/>
+				{#if configInfo}
+					<DemoInfo {configInfo}/>
+				{:else}
+					<div class="container">
+						<Spinner color="info" type="border" />
+					</div>
+				{/if}
 			</div>
 		</TabPanel>
 	
