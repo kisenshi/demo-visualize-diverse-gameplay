@@ -9,9 +9,6 @@
     let availableBehaviours = ["WINNER", "EXPLORER", "CURIOUS", "KILLER", "COLLECTOR"];
     let availableGames = ["BUTTERFLIES", "ZELDA", "DIGDUG"];
     let availableFeatures = ["EXPLORATION_PERCENTAGE", "SCORE", "WINS", "CURIOSITY", "INTERACTIONS", "COLLISIONS", "KILLS", "ITEMS"];
-
-    console.log("configInfo:");
-    console.log(configInfo.games);
 </script>
 
 <h1>Demo</h1>
