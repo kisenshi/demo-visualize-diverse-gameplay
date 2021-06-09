@@ -42,6 +42,16 @@ The work presented in this Demo is related to my PhD research. [MAP-Elites to Ge
 This project has been implemented using [Svelte](https://svelte.dev), [Sveltestrap](https://sveltestrap.js.org/v4/?path=/story/components--get-started) and [Plotly JS](https://plotly.com/javascript/). It uses the package [svelte-scrollto](https://www.npmjs.com/package/svelte-scrollto)
 and the [Tab logic](https://svelte.dev/repl/8e68120858e5322272dc9136c4bb79cc?version=3.5.1) implemented by Rich Harris.
 
+## License
+
+Copyright (C) 2021 Cristina Guerrero-Romero
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
+
 
 
 
