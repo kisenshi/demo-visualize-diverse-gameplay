@@ -184,7 +184,10 @@
                                                     <li>
                                                         <a href="download/automatedGameplay.zip">automatedGameplay.zip</a>. Contains the instructions
                                                         and necessary files to run the automated gameplay. You only need to download this 
-                                                        once.
+                                                        once.<br/>
+                                                        <span class="checksum-info">
+                                                            <b>Checksum (SHA-256):</b> 85c9d94a1eeac397911c7900d4a832e9ce00e74ab66ffc34905ec903b18bc46a
+                                                        </span>
                                                     </li>
                                                     <li>
                                                         <a href="data:{jsonData}" download="automatedGameplayConfig.json">Config file</a>. 
@@ -209,6 +212,11 @@
 
 
 <style>
+    .checksum-info {
+        font-size: small;
+        display: block;
+    }
+
     span {
         display: block;
         padding: 5px;
