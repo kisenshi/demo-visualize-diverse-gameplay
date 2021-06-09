@@ -28,12 +28,12 @@
 </Jumbotron>
 <p>
     This is an interactive tool that allows to visualize the gameplays of agents 
-    with different motivations and goals in a same game, by choosing a range 
+    with different motivations and goals in a game, by choosing a range 
     of expected stats (features) for each of them. These features define the space
     where a series of agents are generated, which we call <i>a team</i>.
 </p>
 <p>
-    Each member of the team has different ways to interact with the game, given by 
+    Each agent from the team generated has different ways to interact with the game, given by 
     the available behaviours and the weight assigned to each of them. The combination
     of these behaviours drives the actions of the agent in the game and have an effect
     on the resulting stats obtained, in terms of score, item collection, exploration of 
@@ -45,6 +45,13 @@
     details about the agents generated, play a pre-recorded gameplay
     of each of them and download an standalone and instructions to run the agents locally.
 </p>
+<Toggle title="What is an agent?">
+    <p>
+        We define an agent as an artificial player able to play a game on its own, automatically. Its
+        reaction to the events of the game and the actions it takes depend on the behaviour assigned
+        to it, which in Artificial Intelligence (AI) is called heuristic.
+    </p>
+</Toggle>
 <Toggle title="Behaviours">
     <p>
         Five different behaviours (heuristics) have been identified and implemented for the agents. The
@@ -70,64 +77,62 @@
             <tr><td></td><td></td></tr>
         </tbody>
     </Table>
-</Toggle><br/>
+</Toggle>
+<Toggle title="Games">
+    <p>
+        We have generated agents with distinct behaviours for three games supported by the GVGAI Framework. Refer to the paper linked above for more details.
+    </p>
+     <Table responsive>
+         <thead>
+             <tr>
+                 <th>Game</th>
+                 <th>Description</th>
+                 <th>Level screenshot</th>
+             </tr>
+         </thead>
+         <tbody class="info-data-table">
+             {#each availableGames as game}
+                 <tr>
+                     <td>{configInfo.games[game].name}</td>
+                     <td width="50%">{configInfo.games[game].description}</td>
+                     <td class="lvl-screenshot"><img src={configInfo.games[game].screenshot} alt="{configInfo.games[game].name} level screenshot"/></td>
+                 </tr>
+             {/each}
+             <tr><td></td><td></td><td></td></tr>
+         </tbody>
+     </Table>
+     
+ </Toggle>
+ <Toggle title="Features">
+     <p>
+         There are a series of features to choose from that define the space of the agents generated.
+         These features are related to the results of the actions of the agents in the game and are 
+         defined by the stats obtained after playing the game several times. These values help 
+         to understand what to expect from each agent during its gameplay.
+     </p>
+     <Table responsive>
+         <thead>
+             <tr>
+                 <th>Feature</th>
+                 <th>Description</th>
+             </tr>
+         </thead>
+         <tbody class="info-data-table">
+             {#each availableFeatures as feature}
+                 <tr>
+                     <td>{configInfo.features[feature].name}</td>
+                     <td>{configInfo.features[feature].description}</td>
+                 </tr>
+             {/each}
+             <tr><td></td><td></td></tr>
+         </tbody>
+     </Table>
+ </Toggle><br/>
 <h2>Instructions</h2>
 <ol>
     <li>
         Go to <i>Choose Data</i> to <b>select the game and pair of features</b> to see details about the <b>team 
         of agents</b> generated for them.
-        <Container>
-            <Toggle title="Games">
-               <p>
-                   We have generated agents with distinct behaviours for three games supported by the GVGAI Framework. Refer to the paper linked above for more details.
-               </p>
-                <Table responsive>
-                    <thead>
-                        <tr>
-                            <th>Game</th>
-                            <th>Description</th>
-                            <th>Level screenshot</th>
-                        </tr>
-                    </thead>
-                    <tbody class="info-data-table">
-                        {#each availableGames as game}
-                            <tr>
-                                <td>{configInfo.games[game].name}</td>
-                                <td width="50%">{configInfo.games[game].description}</td>
-                                <td class="lvl-screenshot"><img src={configInfo.games[game].screenshot} alt="{configInfo.games[game].name} level screenshot"/></td>
-                            </tr>
-                        {/each}
-                        <tr><td></td><td></td><td></td></tr>
-                    </tbody>
-                </Table>
-                
-            </Toggle>
-            <Toggle title="Features">
-                <p>
-                    There are a series of features to choose from that define the space of the agents generated.
-                    These features are related to the results of the actions of the agents in the game and are 
-                    defined by the stats obtained after playing the game several times. These values help 
-                    to understand what to expect from each agent during its gameplay.
-                </p>
-                <Table responsive>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody class="info-data-table">
-                        {#each availableFeatures as feature}
-                            <tr>
-                                <td>{configInfo.features[feature].name}</td>
-                                <td>{configInfo.features[feature].description}</td>
-                            </tr>
-                        {/each}
-                        <tr><td></td><td></td></tr>
-                    </tbody>
-                </Table>
-            </Toggle>
-        </Container>
     </li><br/>
     <li>
         Go to <i>Team Info</i> to <b>visualize the data generated</b> for the game and pair of features selected.
@@ -142,7 +147,7 @@
                 agent after playing the game a total of 100 times.
                 The colour assigned to the cell is the performance of the agent, used to find the 
                 <i>best</i> agent for each pair of features (red -> green). The criteria used for the 
-                performance is the end of game time, considering <i>better</i> and agent that reaches 
+                performance is the end of game time, considering <i>better</i> an agent that reaches 
                 the "game over" state earlier than another one, while ending up with a value for the 
                 features in a similar range.
             </li>
@@ -171,10 +176,9 @@
             </li>
             <li>
                 <b>Run the agent locally.</b> You can download a zip containing the files needed to
-                trigger an automated gameplay of a game of the GVGAI Framework. We generate 
-                a json for each agent that serves as its configuration and allows running it. It is 
-                possible to download this json file as well or just copying and pasting in into the
-                config file provided. The zip contains the instructions to execute the code.
+                trigger an automated gameplay of a game of the GVGAI Framework. We also provide 
+                a config file for each agent that allows running it, which can be downloaded or copied
+                and pasted into the standalone project. The zip contains the instructions to execute the code.
             </li>
         </ul>
     </li>
