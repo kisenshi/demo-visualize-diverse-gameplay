@@ -1,6 +1,5 @@
 <script>
     import Toggle from './ToggleLogic/Toggle.svelte';
-    import { Container } from 'sveltestrap';
     import { Table } from 'sveltestrap';
     import { Jumbotron } from 'sveltestrap';
 

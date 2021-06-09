@@ -10,6 +10,7 @@
 	import { Spinner } from 'sveltestrap';
 	import { Button } from 'sveltestrap';
 	import { FormGroup, CustomInput } from 'sveltestrap';
+	import { Container } from 'sveltestrap';
 
 	import { Tabs, TabList, TabPanel, Tab } from './TabLogic/tabs.js';
 
@@ -171,6 +172,11 @@
 			</TabPanel>
 		{/if}
 	</Tabs>	
+	<Container>
+		<div class="footer">
+			&#169; 2021 Cristina Guerrero-Romero
+		</div>
+	</Container>
 </main>
 
 <style>
@@ -222,5 +228,9 @@
 
 	:global(#my-style hr) {
 		border-top: 1px solid #65a7ff;
+	}
+
+	.footer {
+		font-size: small;
 	}
 </style>
