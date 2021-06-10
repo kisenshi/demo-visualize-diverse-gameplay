@@ -119,7 +119,7 @@
 		agentData["cellX"] = cellIdxFeatureX;
 		agentData["cellY"] = cellIdxFeatureY;
 
-		agentData["videoUrl"] = "video/"+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".webm";
+		agentData["videoUrl"] = "video/"+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".mp4";
 		
 		animateScroll.scrollTo({element: '#agentData'});
 
