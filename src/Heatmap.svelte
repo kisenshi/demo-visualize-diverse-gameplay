@@ -23,6 +23,9 @@
     export let mapElites;
     let agentData = null;
 
+    // video url
+    const VIDEOS_STORAGE_URL = "https://demo-visualize-diverse-gameplay-data.ams3.digitaloceanspaces.com/video/";
+
     // video data
     let loadingVideo = false;
     let videoAvailable = false;
@@ -119,7 +122,7 @@
 		agentData["cellX"] = cellIdxFeatureX;
 		agentData["cellY"] = cellIdxFeatureY;
 
-		agentData["videoUrl"] = "video/"+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".mp4";
+		agentData["videoUrl"] = VIDEOS_STORAGE_URL+dataInfo["gameName"]+"_"+dataInfo["experimentId"]+"_"+cellIdxFeatureX+"_"+cellIdxFeatureY+".mp4";
 		
 		animateScroll.scrollTo({element: '#agentData'});
 
