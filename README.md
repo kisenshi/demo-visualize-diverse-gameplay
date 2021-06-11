@@ -18,7 +18,7 @@ of each of them and download an standalone and instructions to run the agents lo
 
 ## Demo
 
-The demo is live at: 
+The demo is live at: https://demo-visualize-diverse-gameplay-xqjmp.ondigitalocean.app/
 
 ## Run locally
 
