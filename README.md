@@ -18,7 +18,7 @@ of each of them and download an standalone and instructions to run the agents lo
 
 ## Demo
 
-The demo is live at: http://team-automated-gameplay-visualization.surge.sh
+The demo is live at: 
 
 ## Run locally
 
