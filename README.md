@@ -35,7 +35,7 @@ Visit [Svelte](https://svelte.dev) for detailed information.
 
 ## Context
 
-The work presented in this Demo is related to my PhD research. [MAP-Elites to Generate a Team of Agents that Elicits Diverse Automated Gameplay](http://kisenshi.github.io/files/map-elites-generation-team-agents-behaviour.pdf) describes in detail the motivation and experiments carried out to generate the data presented in this demo. This paper will be published in the Proceedings of the [3rd IEEE Conference on Games (CoG)](https://ieee-cog.org/2021/index.html) in August 2021.
+The work presented in this Demo is related to my PhD research. [MAP-Elites to Generate a Team of Agents that Elicits Diverse Automated Gameplay](http://kisenshi.github.io/files/paper-map-elites-generation-team-agents-behaviour.pdf) describes in detail the motivation and experiments carried out to generate the data presented in this demo. This paper will be published in the Proceedings of the [3rd IEEE Conference on Games (CoG)](https://ieee-cog.org/2021/index.html) in August 2021.
 
 ## Credits
 
