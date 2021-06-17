@@ -18,7 +18,7 @@
     <hr/>
     <p> 
         The work presented in this Demo is related to my PhD research. 
-    <a href="http://kisenshi.github.io/files/map-elites-generation-team-agents-behaviour.pdf" target="_blank">
+    <a href="http://kisenshi.github.io/files/paper-map-elites-generation-team-agents-behaviour.pdf" target="_blank">
         MAP-Elites to Generate a Team of Agents that Elicits Diverse Automated Gameplay</a> describes 
     in detail the motivation and experiments carried out to generate the data presented in this demo.
     This paper will be published in the Proceedings of the <a href="https://ieee-cog.org/2021/index.html"
