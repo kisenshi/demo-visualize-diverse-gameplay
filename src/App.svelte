@@ -144,6 +144,9 @@
 						{#each configInfo.files["DIGDUG"]["D5"] as fileData}
 							<option value="D5/{fileData.file}">digdug (5 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
 						{/each}
+						{#each configInfo.files["SHERIFF"]["S4"] as fileData}
+							<option value="S4/{fileData.file}">sheriff (4 behaviours) - {fileData.featureX} x {fileData.featureY}</option>
+						{/each}
 					</CustomInput>
 				</FormGroup>
 
