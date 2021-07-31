@@ -18,7 +18,7 @@
         "SHERIFF": {
             "name": "sheriff",
             "screenshot": "img/games/sheriff.png",
-            "description": "The game player can move up, down, left and right, and shoot red bullets. The goal of tha game is to kill the bandits by shooting at them (+1 score change) and to survive until the time runs out. The player cannot access the prison but can shoot into it, and dies when hit by an enemy's bullet, which decreases the score by 1. The timeout for this game is 1000 game ticks."
+            "description": "The player can move up, down, left and right, and shoot red bullets. The goal of the game is to kill the bandits by shooting at them (+1 score change) and to survive until the time runs out. The player cannot access the prison but can shoot into it, and dies when hit by an enemy's bullet, which decreases the score by 1. The timeout for this game is 1000 game ticks."
         }
     },
     "behaviours": {

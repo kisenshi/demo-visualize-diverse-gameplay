@@ -186,7 +186,7 @@
                                                         and necessary files to run the automated gameplay. You only need to download this 
                                                         once.<br/>
                                                         <span class="checksum-info">
-                                                            <b>Checksum (SHA-256):</b> bfbef28eadb359bcff519e2b1391cf1d6d7f7d2a2193ae5d628fad968a9c2a9d
+                                                            <b>Checksum (SHA-256):</b> e3aff7646df41665058ddc35fd9d86c213ce9f571ff39451b58d43238e601456
                                                         </span>
                                                     </li>
                                                     <li>
