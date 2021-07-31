@@ -6,7 +6,7 @@
     export let configInfo = {};
 
     let availableBehaviours = ["WINNER", "EXPLORER", "CURIOUS", "KILLER", "COLLECTOR"];
-    let availableGames = ["BUTTERFLIES", "ZELDA", "DIGDUG"];
+    let availableGames = ["BUTTERFLIES", "ZELDA", "DIGDUG", "SHERIFF"];
     let availableFeatures = ["EXPLORATION_PERCENTAGE", "SCORE", "WINS", "CURIOSITY", "INTERACTIONS", "COLLISIONS", "KILLS", "ITEMS"];
 </script>
 

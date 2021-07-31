@@ -14,6 +14,11 @@
             "name": "digdug",
             "screenshot": "img/games/digdug.png",
             "description": "The goal is to kill all monsters (NPCs) and collect all gems and gold (resources) of the map before the time runs out, while avoiding being killed by the enemies. The player can move up, down, left and right and has a shovel that can be used to a) hit walls to break them; b) hit rock blocks (those marked with a G) to create gold and c) hit monsters to kill them. Collecting gems increases the score in 1 and killing monsters in 2. The maximum number of game ticks set is 2000."
+        },
+        "SHERIFF": {
+            "name": "sheriff",
+            "screenshot": "img/games/sheriff.png",
+            "description": "The game player can move up, down, left and right, and shoot red bullets. The goal of tha game is to kill the bandits by shooting at them (+1 score change) and to survive until the time runs out. The player cannot access the prison but can shoot into it, and dies when hit by an enemy's bullet, which decreases the score by 1. The timeout for this game is 1000 game ticks."
         }
     },
     "behaviours": {
@@ -114,6 +119,16 @@
                     "file": "MAPElitesGameplay_30B0h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
                     "featureX": "COLLISIONS",
                     "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B02i_butterflies_lvl0_x_WINS_y_CURIOSITY_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B02j_butterflies_lvl0_x_WINS_y_COLLISIONS_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "COLLISIONS"
                 }
             ],
             "B3": [
@@ -156,6 +171,16 @@
                     "file": "MAPElitesGameplay_30B03h_butterflies_lvl0_x_COLLISIONS_y_SCORE_perf_FAST_100_200",
                     "featureX": "COLLISIONS",
                     "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03i_butterflies_lvl0_x_WINS_y_CURIOSITY_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30B03j_butterflies_lvl0_x_WINS_y_COLLISIONS_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "COLLISIONS"
                 }
             ]
         },
@@ -194,6 +219,41 @@
                 {
                     "file": "MAPElitesGameplay_30Z1h_zelda_x_INTERACTIONS_y_KILLS_perf_FAST_100_250",
                     "featureX": "INTERACTIONS",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15i_zelda_lvl1_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_125",
+                    "featureX": "WINS",
+                    "featureY": "EXPLORATION_PERCENTAGE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15j_zelda_lvl1_x_WINS_y_SCORE_perf_FAST_100_125",
+                    "featureX": "WINS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15k_zelda_lvl1_x_WINS_y_CURIOSITY_perf_FAST_100_125",
+                    "featureX": "WINS",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15l_zelda_lvl1_x_WINS_y_INTERACTIONS_perf_FAST_100_125",
+                    "featureX": "WINS",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15m_zelda_lvl1_x_WINS_y_KILLS_perf_FAST_100_125",
+                    "featureX": "WINS",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15n_zelda_lvl1_x_CURIOSITY_y_INTERACTIONS_perf_FAST_100_125",
+                    "featureX": "CURIOSITY",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30Z15o_zelda_lvl1_x_CURIOSITY_y_KILLS_perf_FAST_100_125",
+                    "featureX": "CURIOSITY",
                     "featureY": "KILLS"
                 }
             ]
@@ -249,6 +309,130 @@
                     "file": "MAPElitesGameplay_30D0j_digdug_x_KILLS_y_ITEMS_perf_FAST_100_250",
                     "featureX": "KILLS",
                     "featureY": "ITEMS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05k_digdug_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_100",
+                    "featureX": "WINS",
+                    "featureY": "EXPLORATION_PERCENTAGE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05l_digdug_lvl0_x_WINS_y_SCORE_perf_FAST_100_100",
+                    "featureX": "WINS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05m_digdug_lvl0_x_WINS_y_CURIOSITY_perf_FAST_100_100",
+                    "featureX": "WINS",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05n_digdug_lvl0_x_WINS_y_INTERACTIONS_perf_FAST_100_100",
+                    "featureX": "WINS",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05o_digdug_lvl0_x_WINS_y_KILLS_perf_FAST_100_100",
+                    "featureX": "WINS",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05p_digdug_lvl0_x_WINS_y_ITEMS_perf_FAST_100_100",
+                    "featureX": "WINS",
+                    "featureY": "ITEMS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05q_digdug_lvl0_x_CURIOSITY_y_INTERACTIONS_perf_FAST_100_100",
+                    "featureX": "CURIOSITY",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05r_digdug_lvl0_x_CURIOSITY_y_KILLS_perf_FAST_100_100",
+                    "featureX": "CURIOSITY",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30D05s_digdug_lvl0_x_CURIOSITY_y_ITEMS_perf_FAST_100_100",
+                    "featureX": "CURIOSITY",
+                    "featureY": "ITEMS"
+                }
+            ]
+        },
+        "SHERIFF": {
+            "S4": [
+                {
+                    "file": "MAPElitesGameplay_30S04a_sheriff_lvl0_x_WINS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04b_sheriff_lvl0_x_WINS_y_EXPLORATION_PERCENTAGE_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "EXPLORATION_PERCENTAGE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04c_sheriff_lvl0_x_WINS_y_CURIOSITY_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04d_sheriff_lvl0_x_WINS_y_INTERACTIONS_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04e_sheriff_lvl0_x_WINS_y_KILLS_perf_FAST_100_200",
+                    "featureX": "WINS",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04f_sheriff_lvl0_x_EXPLORATION_PERCENTAGE_y_SCORE_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04g_sheriff_lvl0_x_EXPLORATION_PERCENTAGE_y_CURIOSITY_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "CURIOSITY"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04h_sheriff_lvl0_x_EXPLORATION_PERCENTAGE_y_INTERACTIONS_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04i_sheriff_lvl0_x_EXPLORATION_PERCENTAGE_y_KILLS_perf_FAST_100_200",
+                    "featureX": "EXPLORATION_PERCENTAGE",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04j_sheriff_lvl0_x_CURIOSITY_y_SCORE_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04k_sheriff_lvl0_x_CURIOSITY_y_INTERACTIONS_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "INTERACTIONS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04l_sheriff_lvl0_x_CURIOSITY_y_KILLS_perf_FAST_100_200",
+                    "featureX": "CURIOSITY",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04m_sheriff_lvl0_x_INTERACTIONS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "SCORE"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04n_sheriff_lvl0_x_INTERACTIONS_y_KILLS_perf_FAST_100_200",
+                    "featureX": "INTERACTIONS",
+                    "featureY": "KILLS"
+                },
+                {
+                    "file": "MAPElitesGameplay_30S04o_sheriff_lvl0_x_KILLS_y_SCORE_perf_FAST_100_200",
+                    "featureX": "KILLS",
+                    "featureY": "SCORE"
                 }
             ]
         }
