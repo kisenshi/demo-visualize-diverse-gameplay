@@ -141,7 +141,7 @@
                                                 </tr>
                                                 <tr>
                                                 <td class="statCell">Collisions</td>
-                                                <td><Badge color="{isFeature("COLLISIONS") ? "primary" : color}">{(agentData.gameStats.nUniqueSpriteInteractionsStats.mean).toFixed(2)}</Badge></td>
+                                                <td><Badge color="{isFeature("COLLISIONS") ? "primary" : color}">{(agentData.gameStats.nTotalCollisionsStats.mean).toFixed(2)}</Badge></td>
                                                 </tr>
                                                 <tr>
                                                 <td class="statCell">Hits</td>
